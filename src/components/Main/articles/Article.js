@@ -1,4 +1,4 @@
-export default ({article}) => {
+const Article = ({article}) => {
     return (
         <article className="col-12 col-md-6 tm-post">
             <hr className="tm-hr-primary" />
@@ -23,3 +23,5 @@ export default ({article}) => {
         </article>
     )
 };
+
+export default Article;

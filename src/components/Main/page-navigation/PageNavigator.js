@@ -1,4 +1,4 @@
-export default () => {
+const PageNavigator = () => {
     return (
         <div className="row tm-row tm-mt-100 tm-mb-75">
             <div className="tm-prev-next-wrapper">
@@ -27,3 +27,5 @@ export default () => {
         </div>
     );
 };
+
+export default PageNavigator;

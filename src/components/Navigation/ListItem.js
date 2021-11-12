@@ -1,4 +1,4 @@
-export default () => {
+const ListItem = () => {
     return (
         <>
             <li className="tm-nav-item active"><a href="/" className="tm-nav-link">
@@ -17,6 +17,20 @@ export default () => {
                 <i className="far fa-comments"></i>
                 Contact Us
             </a></li>
+            <li className="tm-nav-item"><a href="/contact" className="tm-nav-link">
+                <i className="far fa-comments"></i>
+                Login
+            </a></li>
+            <li className="tm-nav-item"><a href="/contact" className="tm-nav-link">
+                <i className="far fa-comments"></i>
+                Register
+            </a></li>
+            <li className="tm-nav-item"><a href="/contact" className="tm-nav-link">
+                <i className="far fa-comments"></i>
+                Logout
+            </a></li>
         </>
     )
-}
+};
+
+export default ListItem;

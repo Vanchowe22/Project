@@ -1,6 +1,6 @@
 import ListItem from "./ListItem";
 
-export default () => {
+const Header = () => {
     return (
         <header className="tm-header" id="tm-header">
             <div className="tm-header-wrapper">
@@ -37,3 +37,5 @@ export default () => {
         </header>
     )
 };
+
+export default Header;

@@ -1,4 +1,4 @@
-export default () => {
+const Footer = () => {
     return (
         <footer className="row tm-row">
             <hr className="col-12"/>
@@ -10,4 +10,6 @@ export default () => {
             </div>
         </footer>
     )
-}
+};
+
+export default Footer;

@@ -2,7 +2,7 @@ import Articles from "./articles/Articles";
 import PageNavigator from "./page-navigation/PageNavigator";
 import Search from "./Search";
 
-export default () => {
+const Main = () => {
     return (
         <div className="container-fluid">
             <main className="tm-main">
@@ -13,3 +13,5 @@ export default () => {
         </div>
     )
 };
+
+export default Main;

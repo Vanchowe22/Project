@@ -1,4 +1,4 @@
-export default () => {
+const Search = () => {
     return (
         <div className="row tm-row">
             <div className="col-12">
@@ -12,3 +12,5 @@ export default () => {
         </div>
     );
 };
+
+export default Search;

@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { getAll } from "../../../service/acticles-service";
 import Article from "./Article";
 
-export default () => {
-
+const Articles = () => {
     const [articles, setArticles] = useState([]);
     useEffect(() => getAll()
         .then(data => {
@@ -17,3 +16,5 @@ export default () => {
         </div>
     )
 };
+
+export default Articles;
