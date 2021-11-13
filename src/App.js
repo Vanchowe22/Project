@@ -9,13 +9,13 @@ function App() {
     <>
       <Header />
       <div className="container-fluid">
-            <main className="tm-main">
-                <Search/>
-                <Articles/>
-                <PageNavigator/>
-            </main>
-        </div>
-      <Footer />
+        <main className="tm-main">
+          <Search />
+          <Articles />
+          <PageNavigator />
+          <Footer />
+        </main>
+      </div>
     </>
   );
 }
