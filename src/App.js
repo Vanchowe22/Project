@@ -5,6 +5,10 @@ import Articles from "./components/Articles";
 import PageNavigator from "./components/PageNavigator";
 
 function App() {
+  const router = {
+    '/home': <Articles />
+  }
+
   return (
     <>
       <Header />
