@@ -1,15 +1,20 @@
-import Header from "./components/Navigation/Header";
-import Main from "./components/Main/Main";
-import Footer from "./components/Footer/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Search from "./components/Search";
+import Articles from "./components/Articles";
+import PageNavigator from "./components/PageNavigator";
 
 function App() {
-  const router = {
-    '/home': <Main />
-  }
   return (
     <>
       <Header />
-      <Main />
+      <div className="container-fluid">
+            <main className="tm-main">
+                <Search/>
+                <Articles/>
+                <PageNavigator/>
+            </main>
+        </div>
       <Footer />
     </>
   );

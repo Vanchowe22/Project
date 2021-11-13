@@ -1,5 +1,5 @@
-import Articles from "./articles/Articles";
-import PageNavigator from "./page-navigation/PageNavigator";
+import Articles from "./Articles";
+import PageNavigator from "./PageNavigator";
 import Search from "./Search";
 
 const Main = () => {
