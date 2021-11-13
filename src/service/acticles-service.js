@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3030/data/movies'
+const baseUrl = 'http://localhost:5000/data/blog'
 
 export const getAll = () => {
     return fetch(baseUrl)
