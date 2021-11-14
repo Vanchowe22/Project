@@ -3,20 +3,31 @@ import Footer from "./components/Footer";
 import Search from "./components/Search";
 import Articles from "./components/Articles";
 import PageNavigator from "./components/PageNavigator";
+import Login from "./components/Login";
+import Register from "./components/Register";
+
+import { useState } from "react";
 
 function App() {
+  const [route, setRoute] = useState('/home');
+
+  const navigatoionHandler = (path) =>{
+    setRoute(path);
+  };
+
   const router = {
-    '/home': <Articles />
+    '/home': [<Articles />, <PageNavigator />],
+    '/login': <Login />,
+    '/register': <Register />
   }
 
   return (
     <>
-      <Header />
+      <Header navigatoionHandler={navigatoionHandler} />
       <div className="container-fluid">
         <main className="tm-main">
           <Search />
-          <Articles />
-          <PageNavigator />
+          {router[route] || ''}
           <Footer />
         </main>
       </div>

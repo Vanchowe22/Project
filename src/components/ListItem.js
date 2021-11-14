@@ -1,7 +1,7 @@
 const ListItem = () => {
     return (
         <>
-            <li className="tm-nav-item active"><a href="/" className="tm-nav-link">
+            <li className="tm-nav-item active"><a href="/home" className="tm-nav-link">
                 <i className="fas fa-home"></i>
                 Blog Home
             </a></li>
@@ -17,11 +17,11 @@ const ListItem = () => {
                 <i className="far fa-comments"></i>
                 Contact Us
             </a></li>
-            <li className="tm-nav-item"><a href="/contact" className="tm-nav-link">
+            <li className="tm-nav-item"><a href="/login" className="tm-nav-link">
                 <i className="far fa-comments"></i>
                 Login
             </a></li>
-            <li className="tm-nav-item"><a href="/contact" className="tm-nav-link">
+            <li className="tm-nav-item"><a href="/register" className="tm-nav-link">
                 <i className="far fa-comments"></i>
                 Register
             </a></li>

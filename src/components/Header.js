@@ -1,8 +1,16 @@
 import ListItem from "./ListItem";
 
-const Header = () => {
+const Header = ({navigatoionHandler}) => {
+    const onNav = (e) => {
+        e.preventDefault();
+
+        if(e.target.tagName == 'A'){
+            let url = new URL(e.target.href);
+            navigatoionHandler(url.pathname);
+        }
+    }
     return (
-        <header className="tm-header" id="tm-header">
+        <header onClick={onNav} className="tm-header" id="tm-header">
             <div className="tm-header-wrapper">
                 <button className="navbar-toggler" type="button" aria-label="Toggle navigation">
                     <i className="fas fa-bars"></i>
