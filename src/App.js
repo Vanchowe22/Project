@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 
 import { useState } from "react";
+import Contact from "./components/Contact";
 
 function App() {
   const [route, setRoute] = useState('/home');
@@ -18,7 +19,8 @@ function App() {
   const router = {
     '/home': [<Search />, <Articles />, <PageNavigator />],
     '/login': <Login />,
-    '/register': <Register />
+    '/register': <Register />,
+    '/contact': <Contact />
   }
 
   return (
