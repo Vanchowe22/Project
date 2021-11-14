@@ -11,12 +11,12 @@ import { useState } from "react";
 function App() {
   const [route, setRoute] = useState('/home');
 
-  const navigatoionHandler = (path) =>{
+  const navigatoionHandler = (path) => {
     setRoute(path);
   };
 
   const router = {
-    '/home': [<Articles />, <PageNavigator />],
+    '/home': [<Search />, <Articles />, <PageNavigator />],
     '/login': <Login />,
     '/register': <Register />
   }
@@ -26,7 +26,6 @@ function App() {
       <Header navigatoionHandler={navigatoionHandler} />
       <div className="container-fluid">
         <main className="tm-main">
-          <Search />
           {router[route] || ''}
           <Footer />
         </main>
