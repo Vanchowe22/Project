@@ -1,8 +1,17 @@
-const Article = ({ article }) => {
+const Article = ({
+    navigationHandler,
+    article,
+}) => {
+
+    const onHref = (e) => {
+        e.preventDefault();
+        navigationHandler(`/details/${article._id}`);
+    }
+
     return (
         <article className="col-12 col-md-6 tm-post">
             <hr className="tm-hr-primary" />
-            <a href="post.html" className="effect-lily tm-post-link tm-pt-60">
+            <a  href={`details/${article._id}`} onClick={onHref} className="effect-lily tm-post-link tm-pt-60">
                 <div className="tm-post-link-inner">
                     <img src={article.imageUrl} alt="Image" className="img-fluid" />
                 </div>
@@ -17,7 +26,7 @@ const Article = ({ article }) => {
             </div>
             <hr />
             <div className="d-flex justify-content-between">
-                <span>by {article.creator.name}</span>
+                <span>by {article.owner.name}</span>
             </div>
         </article>
     )
