@@ -30,7 +30,7 @@ const Details = ({
                         <CommentSection />
                     </div>
                 </div>
-
+                
             </div>
         </>
     );
