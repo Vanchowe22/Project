@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAll } from "../service/acticles-service";
+import { getAll } from "../../service/acticles-service";
 import Article from "./Article";
 
 const Articles = ({
