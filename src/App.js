@@ -3,8 +3,8 @@ import Footer from "./components/Footer";
 import Search from "./components/Search";
 import Articles from "./components/Article/Articles";
 import PageNavigator from "./components/PageNavigator";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Login from "./components/Auth/Login";
+import Register from "./components/Auth/Register";
 import Details from "./components/Details/Details";
 import Contact from "./components/Contact";
 
