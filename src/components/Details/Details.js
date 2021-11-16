@@ -1,6 +1,6 @@
+import Main from "./Main";
 import { useEffect, useState } from "react";
-import { getOne } from "../service/acticles-service";
-
+import { getOne } from "../../service/acticles-service";
 const Details = ({
     id
 }) => {
@@ -27,15 +27,8 @@ const Details = ({
             <div className="row tm-row">
                 <div className="col-lg-8 tm-post-col">
                     <div className="tm-post-full">
-                        <div className="mb-4">
-                            <h2 className="pt-2 tm-color-primary tm-post-title">{article.title}</h2>
-                            <p className="tm-mb-40">{article.date} posted by {article.name} </p>
-                            <p>
-                                {article.description}
-                            </p>
-                            <span className="d-block text-right tm-color-primary">{article.type}</span>
-                        </div>
-
+                        <Main article={article} />
+s
                         <div>
                             <h2 className="tm-color-primary tm-post-title">Comments</h2>
                             <hr className="tm-hr-primary tm-mb-45" />

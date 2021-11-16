@@ -5,10 +5,10 @@ import Articles from "./components/Articles";
 import PageNavigator from "./components/PageNavigator";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Details from "./components/Details/Details";
+import Contact from "./components/Contact";
 
 import { useState } from "react";
-import Contact from "./components/Contact";
-import Details from "./components/Details";
 
 function App() {
   const [route, setRoute] = useState('/home');
