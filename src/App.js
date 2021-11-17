@@ -4,7 +4,7 @@ import Articles from "./components/Article/Articles";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import Details from "./components/Details/Details";
-import Contact from "./components/Contact";
+import Contact from "./components/Contact/Contact";
 
 import { Route, Switch } from "react-router-dom";
 

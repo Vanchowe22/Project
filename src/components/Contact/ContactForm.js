@@ -1,37 +1,27 @@
 const ContactForm = () => {
     return (
-        <div class="col-lg-7 tm-contact-left">
-            <form class="mb-5 ml-auto mr-0 tm-contact-form">
-                <div class="form-group row mb-4">
-                    <label htmlFor="name" class="col-sm-3 col-form-label text-right tm-color-primary">Name</label>
-                    <div class="col-sm-9">
-                        <input class="form-control mr-0 ml-auto" name="name" id="name" type="text" required />
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-8">
+                <form action="#" class="form-contact">
+                    <div class="row">
+                        <div class="col-sm-6 py-2">
+                            <input type="text" class="form-control" id="name" placeholder="Enter name.." />
+                        </div>
+                        <div class="col-sm-6 py-2">
+                            <input type="text" class="form-control" id="email" placeholder="Email address.." />
+                        </div>
+                        <div class="col-12 py-2">
+                            <input type="text" class="form-control" id="subject" placeholder="Subject.." />
+                        </div>
+                        <div class="col-12 py-2">
+                            <textarea id="message" rows="8" class="form-control" placeholder="Enter message.."></textarea>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <button type="submit" class="btn btn-primary px-5">Submit</button>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row mb-4">
-                    <label htmlFor="email" class="col-sm-3 col-form-label text-right tm-color-primary">Email</label>
-                    <div class="col-sm-9">
-                        <input class="form-control mr-0 ml-auto" name="email" id="email" type="email" required />
-                    </div>
-                </div>
-                <div class="form-group row mb-4">
-                    <label htmlFor="subject" class="col-sm-3 col-form-label text-right tm-color-primary">Subject</label>
-                    <div class="col-sm-9">
-                        <input class="form-control mr-0 ml-auto" name="subject" id="subject" type="text" required />
-                    </div>
-                </div>
-                <div class="form-group row mb-5">
-                    <label htmlFor="message" class="col-sm-3 col-form-label text-right tm-color-primary">Message</label>
-                    <div class="col-sm-9">
-                        <textarea class="form-control mr-0 ml-auto" name="message" id="message" rows="8" required></textarea>
-                    </div>
-                </div>
-                <div class="form-group row text-right">
-                    <div class="col-12">
-                        <button class="tm-btn tm-btn-primary tm-btn-small">Submit</button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     );
 };
