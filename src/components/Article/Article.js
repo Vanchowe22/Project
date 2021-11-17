@@ -1,22 +1,18 @@
+import { Link } from "react-router-dom";
+
 const Article = ({
-    navigationHandler,
     article,
 }) => {
-
-    const onHref = (e) => {
-        e.preventDefault();
-        navigationHandler(`/details/${article._id}`);
-    }
 
     return (
         <article className="col-12 col-md-6 tm-post">
             <hr className="tm-hr-primary" />
-            <a  href={`details/${article._id}`} onClick={onHref} className="effect-lily tm-post-link tm-pt-60">
+            <Link to={`details/${article._id}`} className="effect-lily tm-post-link tm-pt-60">
                 <div className="tm-post-link-inner">
                     <img src={article.imageUrl} alt="Image" className="img-fluid" />
                 </div>
                 <h2 className="tm-pt-30 tm-color-primary tm-post-title">{article.title}</h2>
-            </a>
+            </Link>
             <p className="tm-pt-30">
                 {article.description}
             </p>

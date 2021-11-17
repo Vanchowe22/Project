@@ -6,7 +6,7 @@ const CommentSection = () => {
             <hr className="tm-hr-primary tm-mb-45" />
             <div className="tm-comment tm-mb-45">
                 <figure className="tm-comment-figure">
-                    <img src="img/comment-1.jpg" alt="Image" className="mb-2 rounded-circle img-thumbnail" />
+                    <img src="/img/comment-1.jpg" alt="Image" className="mb-2 rounded-circle img-thumbnail" />
                     <figcaption className="tm-color-primary text-center">Mark Sonny</figcaption>
                 </figure>
                 <div>
@@ -26,7 +26,7 @@ const CommentSection = () => {
                 <hr />
                 <div className="tm-comment">
                     <figure className="tm-comment-figure">
-                        <img src="img/comment-2.jpg" alt="Image" className="mb-2 rounded-circle img-thumbnail" />
+                        <img src="/img/comment-2.jpg" alt="Image" className="mb-2 rounded-circle img-thumbnail" />
                         <figcaption className="tm-color-primary text-center">Jewel Soft</figcaption>
                     </figure>
                     <p>

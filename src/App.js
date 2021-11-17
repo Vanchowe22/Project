@@ -1,43 +1,26 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Search from "./components/Search";
 import Articles from "./components/Article/Articles";
-import PageNavigator from "./components/PageNavigator";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import Details from "./components/Details/Details";
 import Contact from "./components/Contact";
 
-import { useState } from "react";
+import { Route, Switch } from "react-router-dom";
 
 function App() {
-  const [route, setRoute] = useState('/home');
-
-  const navigationHandler = (path) => {
-    setRoute(path);
-  };
-
-  const routing = (path) => {
-    let [root, arg] = path.split('/').filter(x => x.length > 0)
-    const router = {
-      'home': [<Search key={1} />, <Articles key={2} navigationHandler={navigationHandler} />, <PageNavigator key={3} />],
-      'login': <Login />,
-      'register': <Register />,
-      'contact': [<Search key={1}/>, <Contact key={2} />],
-      'details': <Details id={arg} />
-    };
-
-
-    return router[root];
-  };
-
-
   return (
     <>
-      <Header navigationHandler={navigationHandler} />
+      <Header />
       <div className="container-fluid">
         <main className="tm-main">
-          {routing(route) || ''}
+          <Switch>
+            <Route path='/' exact component={Articles} />,
+            <Route path='/login' component={Login} />,
+            <Route path='/register' component={Register} />,
+            <Route path='/contact' component={Contact} />,
+            <Route path='/details/:id' component={Details} />,
+          </Switch>
           <Footer />
         </main>
       </div>

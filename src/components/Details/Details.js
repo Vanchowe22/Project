@@ -4,12 +4,13 @@ import CommentSection from "./CommentSection";
 import { useEffect, useState } from "react";
 import { getOne } from "../../service/acticles-service";
 const Details = ({
-    id
+    match
 }) => {
 
+    console.log(match);
     const [article, setArticle] = useState({});
     useEffect(() => {
-        getOne(id)
+        getOne(match.params.id)
             .then((data) => {
                 setArticle({ ...data, ...data.owner });
             })

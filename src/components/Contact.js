@@ -1,16 +1,9 @@
+import Search from "./Search";
+
 const Contact = () => {
     return (
         <>
-            <div class="row tm-row tm-mb-45">
-                <div class="col-12">
-                    <hr class="tm-hr-primary tm-mb-55" />
-                    <div class="gmap_canvas">
-                        <iframe width="100%" height="477" id="gmap_canvas"
-                            src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                    </div>
-                </div>
-            </div>
+            <Search/>
             <div class="row tm-row tm-mb-120">
                 <div class="col-12">
                     <h2 class="tm-color-primary tm-post-title tm-mb-60">Contact Us</h2>
