@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+
+
 const Register = () => {
     return (
         <section class="signup">
@@ -5,7 +8,7 @@ const Register = () => {
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
-                        <form method="POST" class="register-form" id="register-form">
+                        <form class="register-form" id="register-form">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="name" id="name" placeholder="Your Name" />
@@ -29,7 +32,7 @@ const Register = () => {
                     </div>
                     <div class="signup-image">
                         <figure><img src="images/signup-image.jpg" alt="sing up image"/></figure>
-                        <a href="/login" class="signup-image-link">I am already member</a>
+                        <Link to="/login" class="signup-image-link">I am already member</Link>
                     </div>
                 </div>
             </div>

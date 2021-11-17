@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Login = () => {
     return (
         <section className="sign-in">
@@ -5,7 +7,7 @@ const Login = () => {
                 <div className="signin-content">
                     <div className="signin-image">
                         <figure><img src="images/signin-image.jpg" alt="sing up image" /></figure>
-                        <a href="/register" className="signup-image-link">Create an account</a>
+                        <Link to="/register" className="signup-image-link">Create an account</Link>
                     </div>
 
                     <div className="signin-form">
