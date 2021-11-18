@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
     return (
-        <header  className="tm-header" id="tm-header">
+        <header className="tm-header" id="tm-header">
             <div className="tm-header-wrapper">
                 <button className="navbar-toggler" type="button" aria-label="Toggle navigation">
                     <i className="fas fa-bars"></i>
@@ -13,34 +13,34 @@ const Header = () => {
                 </div>
                 <nav className="tm-nav" id="tm-nav">
                     <ul>
-                        <li className="tm-nav-item active"><Link to="/" className="tm-nav-link">
+                        <li className="tm-nav-item"><NavLink to="/" className="tm-nav-link active">
                             <i className="fas fa-home"></i>
                             Blog Home
-                        </Link></li>
-                        <li className="tm-nav-item"><Link to="/create" className="tm-nav-link">
+                        </NavLink></li>
+                        <li className="tm-nav-item"><NavLink to="/create" className="tm-nav-link active">
                             <i className="fas fa-pen"></i>
                             Create
-                        </Link></li>
-                        <li className="tm-nav-item"><Link to="/about" className="tm-nav-link">
+                        </NavLink></li>
+                        <li className="tm-nav-item"><NavLink to="/about" className="tm-nav-link active">
                             <i className="fas fa-users"></i>
                             About Xtra
-                        </Link></li>
-                        <li className="tm-nav-item"><Link to="/contact" className="tm-nav-link">
+                        </NavLink></li>
+                        <li className="tm-nav-item"><NavLink to="/contact" className="tm-nav-link active">
                             <i className="far fa-comments"></i>
                             Contact Us
-                        </Link></li>
-                        <li className="tm-nav-item"><Link to="/login" className="tm-nav-link">
+                        </NavLink></li>
+                        <li className="tm-nav-item"><NavLink to="/login" className="tm-nav-link active">
                             <i className="far fa-comments"></i>
                             Login
-                        </Link></li>
-                        <li className="tm-nav-item"><Link to="/register" className="tm-nav-link">
+                        </NavLink></li>
+                        <li className="tm-nav-item"><NavLink to="/register" className="tm-nav-link active">
                             <i className="far fa-comments"></i>
                             Register
-                        </Link></li>
-                        <li className="tm-nav-item"><Link to="/logout" className="tm-nav-link">
+                        </NavLink></li>
+                        <li className="tm-nav-item"><NavLink to="/logout" className="tm-nav-link active">
                             <i className="far fa-comments"></i>
                             Logout
-                        </Link></li>
+                        </NavLink></li>
                     </ul>
                 </nav>
                 <div className="tm-mb-65">

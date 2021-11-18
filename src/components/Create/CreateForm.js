@@ -1,4 +1,4 @@
-const createForm = () => {
+const CreateForm = () => {
     return (
         <form action="#" method="post" class="contact-form" data-aos="fade-up" data-aos-delay="300" role="form">
             <div class="row">
@@ -27,4 +27,4 @@ const createForm = () => {
     );
 };
 
-export default createForm;
+export default CreateForm;
