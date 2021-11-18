@@ -17,9 +17,9 @@ const Header = () => {
                             <i className="fas fa-home"></i>
                             Blog Home
                         </Link></li>
-                        <li className="tm-nav-item"><Link to="/post" className="tm-nav-link">
+                        <li className="tm-nav-item"><Link to="/create" className="tm-nav-link">
                             <i className="fas fa-pen"></i>
-                            Single Post
+                            Create
                         </Link></li>
                         <li className="tm-nav-item"><Link to="/about" className="tm-nav-link">
                             <i className="fas fa-users"></i>

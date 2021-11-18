@@ -7,6 +7,7 @@ import Details from "./components/Details/Details";
 import Contact from "./components/Contact/Contact";
 
 import { Route, Switch } from "react-router-dom";
+import Create from "./components/Create/Create";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path='/register' component={Register} />,
             <Route path='/contact' component={Contact} />,
             <Route path='/details/:id' component={Details} />,
+            <Route path='/create' component={Create}/>
           </Switch>
           <Footer />
         </main>
