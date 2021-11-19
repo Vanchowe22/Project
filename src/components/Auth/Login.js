@@ -1,6 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { login } from "../../service/auth-service";
 
 const Login = () => {
+    let history = useHistory();
+    
+    const submit = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(e.currentTarget);
+
+        let user = {
+            email:formData.get('email'),
+            password:formData.get('pass'),
+        }
+
+        login(user)
+            .then((data)=> {
+                sessionStorage.setItem('USER', data);
+                history.push('/');
+            });
+    }
+
     return (
         <section className="sign-in">
             <div className="container">
@@ -12,14 +32,14 @@ const Login = () => {
 
                     <div className="signin-form">
                         <h2 className="form-title">Sign in</h2>
-                        <form method="POST" className="register-form" id="login-form">
+                        <form onSubmit={submit} className="register-form" id="login-form">
                             <div className="form-group">
                                 <label for="your_name"><i className="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="Your Name" />
+                                <input type="email" name="email" id="email" placeholder="Your Email" />
                             </div>
                             <div className="form-group">
                                 <label for="your_pass"><i className="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="your_pass" id="your_pass" placeholder="Password" />
+                                <input type="password" name="pass" id="pass" placeholder="Password" />
                             </div>
                             <div className="form-group form-button">
                                 <input type="submit" name="signin" id="signin" className="form-submit" value="Log in" />

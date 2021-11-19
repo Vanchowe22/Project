@@ -12,14 +12,14 @@ const Register = () => {
         
         let formData = new FormData(e.currentTarget);
 
-        let data = {
+        let user = {
             name: formData.get('name'),
             email: formData.get('email'),
             password: formData.get('pass'),
             rePassword: formData.get('rePass'),
         };
 
-        register(data)
+        register(user)
             .then((data) => {
                 sessionStorage.setItem('USER', data);
                 history.push('/')
