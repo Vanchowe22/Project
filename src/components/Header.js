@@ -21,10 +21,6 @@ const Header = () => {
                             <i className="fas fa-pen"></i>
                             Create
                         </NavLink></li>
-                        <li className="tm-nav-item"><NavLink to="/about" className="tm-nav-link active">
-                            <i className="fas fa-users"></i>
-                            About Xtra
-                        </NavLink></li>
                         <li className="tm-nav-item"><NavLink to="/contact" className="tm-nav-link active">
                             <i className="far fa-comments"></i>
                             Contact Us
