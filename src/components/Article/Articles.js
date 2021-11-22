@@ -10,7 +10,6 @@ const Articles = ({
     const [articles, setArticles] = useState([]);
     useEffect(() => getAll()
         .then(data => {
-            console.log(data);
             setArticles(Object.values(data))
         }), [])
 

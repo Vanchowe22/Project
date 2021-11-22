@@ -1,5 +1,6 @@
 import { Link, useHistory } from "react-router-dom";
 import { login } from "../../service/auth-service";
+import { saveuserInfo } from "../../service/token-handler";
 
 const Login = () => {
     let history = useHistory();
@@ -16,7 +17,7 @@ const Login = () => {
 
         login(user)
             .then((data)=> {
-                sessionStorage.setItem('USER', data);
+                saveuserInfo(data)
                 history.push('/');
             });
     }

@@ -7,7 +7,6 @@ const Details = ({
     match
 }) => {
 
-    console.log(match);
     const [article, setArticle] = useState({});
     useEffect(() => {
         getOne(match.params.id)
