@@ -11,3 +11,13 @@ export const create = (data) => fetch(`${baseUrl}`, {
     },
     body:JSON.stringify(data)
 }).then(res => res.json());
+
+export const commentOne = (data, id) => {
+    return fetch(`${baseUrl}/${id}`, {
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(data),
+    }).then(res => res.json())
+}

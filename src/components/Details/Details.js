@@ -27,7 +27,7 @@ const Details = ({
                 <div className="col-lg-8 tm-post-col">
                     <div className="tm-post-full">
                         <Main article={article} />
-                        <CommentSection />
+                        <CommentSection id={match.params.id} />
                     </div>
                 </div>
                 
