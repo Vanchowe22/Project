@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import uniqid from 'uniqid'
 
 import { getOne } from '../../service/acticles-service'
 import Comment from './Comment';
@@ -14,12 +13,11 @@ const CommentSection = ({
     useEffect(() => {
         getOne(id)
             .then(data => {
-                setComments(old => {
-                    return data.comments;
-                });
+                setComments(data.comments);
             });
     }, []);
 
+    console.log(comments)
 
     return (
         <div>
@@ -28,11 +26,11 @@ const CommentSection = ({
             {
                 comments.length > 0
                     ?comments.map(comment =>{
-                        return <Comment key={uniqid()} comment={comment} />
+                        return <Comment key={comment.keyId} comment={comment} />
                     })
                     : ''
             }
-            <CommentForm id={id} />
+            <CommentForm id={id} setComments={setComments} />
         </div>
     );
 };

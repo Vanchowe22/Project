@@ -1,13 +1,15 @@
-import { useHistory } from 'react-router-dom'
+import uniqid from 'uniqid'
 
 import { commentOne } from '../../service/acticles-service';
 import { getUserInfo } from '../../service/token-handler'
 
+import { Redirect } from 'react-router-dom'
+
 const CommentForm = ({
-    id
+    id,
+    setComments,
 }) => {
 
-    let history = useHistory();
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -15,16 +17,17 @@ const CommentForm = ({
         let formData = new FormData(form);
 
         let comment = {
-            name:formData.get('name'),
-            _id:getUserInfo()._id,
-            text:formData.get('message'),
+            name: formData.get('name'),
+            _id: getUserInfo()._id,
+            keyId: uniqid(),
+            text: formData.get('message'),
         };
 
         commentOne(comment, id)
             .then(data => {
                 form.reset();
-
-                history.push(`/details/${id}`)
+                console.log(data);
+                setComments(data.comments)
             })
     }
 
