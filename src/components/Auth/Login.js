@@ -35,11 +35,11 @@ const Login = () => {
                         <h2 className="form-title">Sign in</h2>
                         <form onSubmit={submit} className="register-form" id="login-form">
                             <div className="form-group">
-                                <label for="your_name"><i className="zmdi zmdi-account material-icons-name"></i></label>
+                                <label html="your_name"><i className="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="email" name="email" id="email" placeholder="Your Email" />
                             </div>
                             <div className="form-group">
-                                <label for="your_pass"><i className="zmdi zmdi-lock"></i></label>
+                                <label htmlFor="your_pass"><i className="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="pass" id="pass" placeholder="Password" />
                             </div>
                             <div className="form-group form-button">

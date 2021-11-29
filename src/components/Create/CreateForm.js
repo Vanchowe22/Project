@@ -29,26 +29,26 @@ const CreateForm = () => {
     }
 
     return (
-        <form onSubmit={submit} class="contact-form" data-aos="fade-up" data-aos-delay="300" role="form">
-            <div class="row">
-                <div class="col-lg-6 col-12">
-                    <input type="text" class="form-control" name="name" placeholder="Title" />
+        <form onSubmit={submit} className="contact-form" data-aos="fade-up" data-aos-delay="300" role="form">
+            <div className="row">
+                <div className="col-lg-6 col-12">
+                    <input type="text" className="form-control" name="name" placeholder="Title" />
                 </div>
 
-                <div class="col-lg-6 col-12">
-                    <input type="text" class="form-control" name="genre" placeholder="Genre" />
+                <div className="col-lg-6 col-12">
+                    <input type="text" className="form-control" name="genre" placeholder="Genre" />
                 </div>
 
-                <div class="col-12" style={{ size: '200px' }}>
-                    <input type="text" class="form-control" style={{ size: '200px' }} name="imageUrl" placeholder="Image Url" />
+                <div className="col-12" style={{ size: '200px' }}>
+                    <input type="text" className="form-control" style={{ size: '200px' }} name="imageUrl" placeholder="Image Url" />
                 </div>
 
-                <div class="col-lg-12 col-12">
-                    <textarea class="form-control" rows="6" name="message" placeholder="Message"></textarea>
+                <div className="col-lg-12 col-12">
+                    <textarea className="form-control" rows="6" name="message" placeholder="Message"></textarea>
                 </div>
 
-                <div class="col-lg-5 mx-auto col-7">
-                    <button type="submit" class="form-control" id="submit-button" name="submit">Create Post</button>
+                <div className="col-lg-5 mx-auto col-7">
+                    <button type="submit" className="form-control" id="submit-button" name="submit">Create Post</button>
                 </div>
             </div>
 
