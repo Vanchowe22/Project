@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import useFetchOne from '../../hooks/useFetchOne';
 
 import { getOne } from '../../service/acticles-service'
 import Comment from './Comment';
@@ -7,17 +7,7 @@ import CommentForm from './CommentForm';
 const CommentSection = ({
     id
 }) => {
-
-    const [comments, setComments] = useState([]);
-
-    useEffect(() => {
-        getOne(id)
-            .then(data => {
-                setComments(data.comments);
-            });
-    }, []);
-
-    console.log(comments)
+    let [comments, setComments] = useFetchOne(getOne, id, true);
 
     return (
         <div>
@@ -35,4 +25,4 @@ const CommentSection = ({
     );
 };
 
-export default CommentSection
+export default CommentSection;

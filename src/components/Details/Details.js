@@ -3,17 +3,11 @@ import CommentSection from "./CommentSection";
 
 import { useEffect, useState } from "react";
 import { getOne } from "../../service/acticles-service";
+import useFetchOne from "../../hooks/useFetchOne";
 const Details = ({
     match
 }) => {
-
-    const [article, setArticle] = useState({});
-    useEffect(() => {
-        getOne(match.params.id)
-            .then((data) => {
-                setArticle({ ...data, ...data.owner });
-            })
-    }, [])
+    const article = useFetchOne(getOne, match.params.id, false);
 
     return (
         <>
@@ -30,7 +24,7 @@ const Details = ({
                         <CommentSection id={match.params.id} />
                     </div>
                 </div>
-                
+
             </div>
         </>
     );

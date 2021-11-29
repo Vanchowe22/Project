@@ -3,8 +3,6 @@ import uniqid from 'uniqid'
 import { commentOne } from '../../service/acticles-service';
 import { getUserInfo } from '../../service/token-handler'
 
-import { Redirect } from 'react-router-dom'
-
 const CommentForm = ({
     id,
     setComments,
@@ -26,7 +24,6 @@ const CommentForm = ({
         commentOne(comment, id)
             .then(data => {
                 form.reset();
-                console.log(data);
                 setComments(data.comments)
             })
     }
