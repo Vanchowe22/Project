@@ -1,23 +1,25 @@
+import { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
+import AuthContext from "../../contexts/AuthContext";
 import { login } from "../../service/auth-service";
-import { saveuserInfo } from "../../service/token-handler";
 
 const Login = () => {
     let history = useHistory();
-    
+
+    let { onLogin } = useContext(AuthContext)
     const submit = (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
 
         let user = {
-            email:formData.get('email'),
-            password:formData.get('pass'),
+            email: formData.get('email'),
+            password: formData.get('pass'),
         }
 
         login(user)
-            .then((data)=> {
-                saveuserInfo(data)
+            .then((data) => {
+                onLogin(data);
                 history.push('/');
             });
     }

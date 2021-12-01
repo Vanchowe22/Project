@@ -1,7 +1,5 @@
 import Main from "./Main";
 import CommentSection from "./CommentSection";
-
-import { useEffect, useState } from "react";
 import { getOne } from "../../service/acticles-service";
 import useFetchOne from "../../hooks/useFetchOne";
 const Details = ({

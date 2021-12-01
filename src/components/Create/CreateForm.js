@@ -1,30 +1,31 @@
-import { create } from "../../service/acticles-service";
-
+import { useContext } from "react";
 import { useHistory } from 'react-router-dom';
-import { getUserInfo } from "../../service/token-handler";
+
+import { create } from "../../service/acticles-service";
+import AuthContext from "../../contexts/AuthContext";
 const CreateForm = () => {
 
     let history = useHistory();
+
+    let { auth } = useContext(AuthContext);
 
     const submit = (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
 
-        console.log(getUserInfo())
-        
         let post = {
             title: formData.get('name'),
             type: formData.get('genre'),
             imageUrl: formData.get('imageUrl'),
             description: formData.get('message'),
             date: Date.now(),
-            owner:getUserInfo()._id,
+            owner:auth._id,
         };
 
         create(post)
             .then(data => {
-                history.push('/')             
+                history.push('/');
             })
     }
 

@@ -1,13 +1,14 @@
+import { useContext } from 'react';
 import uniqid from 'uniqid'
 
+import AuthContext from '../../contexts/AuthContext';
 import { commentOne } from '../../service/acticles-service';
-import { getUserInfo } from '../../service/token-handler'
 
 const CommentForm = ({
     id,
     setComments,
 }) => {
-
+    let { auth } = useContext(AuthContext);
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -16,7 +17,7 @@ const CommentForm = ({
 
         let comment = {
             name: formData.get('name'),
-            _id: getUserInfo()._id,
+            _id: auth._id,
             keyId: uniqid(),
             text: formData.get('message'),
         };

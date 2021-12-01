@@ -7,7 +7,7 @@ const useFetchOne = (service, id, isCom) => {
             .then(data => {
                 isCom ? setState(data.comments) : setState({ ...data, ...data.owner });
             })
-    }, [service, id])
+    }, [service, id, isCom])
 
     if (isCom) {
         return [state, setState];

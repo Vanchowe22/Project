@@ -1,6 +1,36 @@
-import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import AuthContext from "../contexts/AuthContext";
 
 const Header = () => {
+
+    let { auth } = useContext(AuthContext);
+
+    let user = (
+        <>
+            <li className="tm-nav-item"><NavLink to="/create" className="tm-nav-link active">
+                <i className="fas fa-pen"></i>
+                Create
+            </NavLink></li>
+            <li className="tm-nav-item"><NavLink to="/logout" className="tm-nav-link active">
+                <i className="far fa-comments"></i>
+                Logout
+            </NavLink></li>
+        </>
+    );
+
+    let guest = (
+        <>
+            <li className="tm-nav-item"><NavLink to="/login" className="tm-nav-link active">
+                <i className="far fa-comments"></i>
+                Login
+            </NavLink></li>
+            <li className="tm-nav-item"><NavLink to="/register" className="tm-nav-link active">
+                <i className="far fa-comments"></i>
+                Register
+            </NavLink></li>
+        </>
+    );
     return (
         <header className="tm-header" id="tm-header">
             <div className="tm-header-wrapper">
@@ -17,25 +47,14 @@ const Header = () => {
                             <i className="fas fa-home"></i>
                             Blog Home
                         </NavLink></li>
-                        <li className="tm-nav-item"><NavLink to="/create" className="tm-nav-link active">
-                            <i className="fas fa-pen"></i>
-                            Create
-                        </NavLink></li>
+                        {
+                            auth.email
+                            ?user
+                            :guest
+                        }
                         <li className="tm-nav-item"><NavLink to="/contact" className="tm-nav-link active">
                             <i className="far fa-comments"></i>
                             Contact Us
-                        </NavLink></li>
-                        <li className="tm-nav-item"><NavLink to="/login" className="tm-nav-link active">
-                            <i className="far fa-comments"></i>
-                            Login
-                        </NavLink></li>
-                        <li className="tm-nav-item"><NavLink to="/register" className="tm-nav-link active">
-                            <i className="far fa-comments"></i>
-                            Register
-                        </NavLink></li>
-                        <li className="tm-nav-item"><NavLink to="/logout" className="tm-nav-link active">
-                            <i className="far fa-comments"></i>
-                            Logout
                         </NavLink></li>
                     </ul>
                 </nav>
