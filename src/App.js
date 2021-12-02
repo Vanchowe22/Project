@@ -39,13 +39,16 @@ function App() {
                 <div className="container-fluid">
                     <main className="tm-main">
                         <Switch>
+                            <Route path='/all-blogs'>
+                                <Articles allBlogs={true} />
+                            </Route>
                             <Route path='/' exact component={Articles} />,
                             <Route path='/login' component={Login} />,
                             <Route path='/register' component={Register} />,
                             <Route path='/contact' component={Contact} />,
                             <Route path='/create' component={Create} />
                             <Route path='/details/:id' component={Details} />,
-                            <Route path='/edit/:id' component={Edit}/>
+                            <Route path='/edit/:id' component={Edit} />
                             <Route path='/logout' component={Logout} />
                         </Switch>
                         <Footer />

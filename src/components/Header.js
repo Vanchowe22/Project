@@ -3,9 +3,7 @@ import { NavLink } from "react-router-dom";
 import AuthContext from "../contexts/AuthContext";
 
 const Header = () => {
-
     let { auth } = useContext(AuthContext);
-
     let user = (
         <>
             <li className="tm-nav-item"><NavLink to="/create" className="tm-nav-link active">
@@ -46,6 +44,10 @@ const Header = () => {
                         <li className="tm-nav-item"><NavLink to="/" className="tm-nav-link active">
                             <i className="fas fa-home"></i>
                             Blog Home
+                        </NavLink></li>
+                        <li className="tm-nav-item"><NavLink to="/all-blogs" className="tm-nav-link active">
+                            <i className="fas fa-home"></i>
+                            All Blogs
                         </NavLink></li>
                         {
                             auth.email
