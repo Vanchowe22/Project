@@ -7,11 +7,11 @@ const Header = () => {
     let user = (
         <>
             <li className="tm-nav-item"><NavLink to="/create" className="tm-nav-link active">
-                <i className="fas fa-pen"></i>
+                <i class="fas fa-plus-circle"></i>
                 Create
             </NavLink></li>
             <li className="tm-nav-item"><NavLink to="/logout" className="tm-nav-link active">
-                <i className="far fa-comments"></i>
+                <i class="fas fa-sign-out-alt"></i>
                 Logout
             </NavLink></li>
         </>
@@ -20,11 +20,11 @@ const Header = () => {
     let guest = (
         <>
             <li className="tm-nav-item"><NavLink to="/login" className="tm-nav-link active">
-                <i className="far fa-comments"></i>
+                <i class="fas fa-sign-in-alt"></i>
                 Login
             </NavLink></li>
             <li className="tm-nav-item"><NavLink to="/register" className="tm-nav-link active">
-                <i className="far fa-comments"></i>
+                <i className="fas fa-pen"></i>
                 Register
             </NavLink></li>
         </>
@@ -46,13 +46,13 @@ const Header = () => {
                             Blog Home
                         </NavLink></li>
                         <li className="tm-nav-item"><NavLink to="/all-blogs" className="tm-nav-link active">
-                            <i className="fas fa-home"></i>
+                            <i class="fas fa-bars"></i>
                             All Blogs
                         </NavLink></li>
                         {
                             auth.email
-                            ?user
-                            :guest
+                                ? user
+                                : guest
                         }
                         <li className="tm-nav-item"><NavLink to="/contact" className="tm-nav-link active">
                             <i className="far fa-comments"></i>
