@@ -32,3 +32,10 @@ export const editOne = (id, data) => {
     })
         .then(res => res.json());
 };
+
+export const deleteOne = (id) => {
+    return fetch(`${baseUrl}/${id}`, {
+        method:'DELETE'
+    })
+        .then(res => res.json());
+};
