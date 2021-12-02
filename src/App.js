@@ -12,6 +12,7 @@ import AuthContext from "./contexts/AuthContext";
 
 import useLocalStorage from "./hooks/useLocalStorage";
 import { Route, Switch } from "react-router-dom";
+import Edit from "./components/Edit/Edit";
 
 const initState = {
     _id: '',
@@ -42,8 +43,9 @@ function App() {
                             <Route path='/login' component={Login} />,
                             <Route path='/register' component={Register} />,
                             <Route path='/contact' component={Contact} />,
-                            <Route path='/details/:id' component={Details} />,
                             <Route path='/create' component={Create} />
+                            <Route path='/details/:id' component={Details} />,
+                            <Route path='/edit/:id' component={Edit}/>
                             <Route path='/logout' component={Logout} />
                         </Switch>
                         <Footer />

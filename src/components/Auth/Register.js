@@ -1,11 +1,13 @@
+import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import AuthContext from '../../contexts/AuthContext';
 import { register } from "../../service/auth-service";
 
 
 const Register = () => {
     let history = useHistory();
-    
+    let { onLogin } = useContext(AuthContext)
     const submit = (e) => {
         e.preventDefault();
         
@@ -21,7 +23,7 @@ const Register = () => {
 
         register(user)
             .then((data) => {
-                sessionStorage.setItem('USER', data);
+                onLogin(data)
                 history.push('/')
             });
 

@@ -5,7 +5,7 @@ const useFetchOne = (service, id, isCom) => {
     useEffect(() => {
         service(id)
             .then(data => {
-                isCom ? setState(data.comments) : setState({ ...data, ...data.owner });
+                isCom ? setState(data.comments) : setState({ ...data, name:data.owner.name });
             })
     }, [service, id, isCom])
 

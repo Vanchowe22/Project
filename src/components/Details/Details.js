@@ -5,7 +5,7 @@ import useFetchOne from "../../hooks/useFetchOne";
 const Details = ({
     match
 }) => {
-    const article = useFetchOne(getOne, match.params.id, false);
+    const article = useFetchOne(getOne, match.params.id);
 
     return (
         <>
