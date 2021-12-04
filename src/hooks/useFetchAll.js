@@ -9,7 +9,7 @@ const useFetchAll= (service) => {
             });
     }, [service])
 
-    return state;
+    return [state, setState];
 }
 
 export default useFetchAll;

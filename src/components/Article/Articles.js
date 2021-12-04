@@ -7,16 +7,20 @@ import useFetchAll from "../../hooks/useFetchAll";
 const Articles = ({
     allBlogs
 }) => {
-    let articles = useFetchAll(getAll)
+    let [articles, setArticles] = useFetchAll(getAll);
 
     if (!allBlogs) {
         articles = articles.slice(0, 4);
     }
-    console.log(articles);
+
+    const onSearch = (data) => {
+        setArticles(data)
+    };
+
     return (
         <>
             {allBlogs
-                ? <Search />
+                ? <Search onSearch={onSearch} />
                 : <h1 className="center-blue-mid">Welcome to Xtra Blog</h1>
             }
             <div className="row tm-row">

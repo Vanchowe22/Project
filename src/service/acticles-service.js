@@ -35,7 +35,9 @@ export const editOne = (id, data) => {
 
 export const deleteOne = (id) => {
     return fetch(`${baseUrl}/${id}`, {
-        method:'DELETE'
+        method: 'DELETE'
     })
         .then(res => res.json());
 };
+
+export const search = (query) => fetch(`http://localhost:5000/search?name=${query}`).then(res => res.json());
