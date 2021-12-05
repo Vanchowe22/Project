@@ -5,7 +5,11 @@ import useFetchOne from "../../hooks/useFetchOne";
 const Details = ({
     match
 }) => {
-    const article = useFetchOne(getOne, match.params.id);
+    const [article, setArticle] = useFetchOne(getOne, match.params.id);
+    
+    const addLike = (article) => {
+        setArticle(article);
+    };
 
     return (
         <>
@@ -18,7 +22,7 @@ const Details = ({
             <div className="row tm-row">
                 <div className="col-lg-8 tm-post-col">
                     <div className="tm-post-full">
-                        <Main article={article} />
+                        <Main article={article}  addLike={addLike} />
                         <CommentSection id={match.params.id} />
                     </div>
                 </div>

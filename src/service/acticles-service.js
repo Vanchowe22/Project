@@ -41,3 +41,14 @@ export const deleteOne = (id) => {
 };
 
 export const search = (query) => fetch(`http://localhost:5000/search?name=${query}`).then(res => res.json());
+
+export const like = (userId, blogId) => {
+    return fetch(`${baseUrl}/${blogId}/like/`, {
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({userId}),
+    })
+        .then(res => res.json());
+};

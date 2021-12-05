@@ -5,14 +5,11 @@ const useFetchOne = (service, id, isCom) => {
     useEffect(() => {
         service(id)
             .then(data => {
-                isCom ? setState(data.comments) : setState({ ...data, name:data.owner.name });
+                isCom ? setState(data.comments) : setState(data);
             })
     }, [service, id, isCom])
 
-    if (isCom) {
-        return [state, setState];
-    }
-    return state;
+    return [state, setState];
 }
 
 export default useFetchOne;
