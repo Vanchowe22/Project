@@ -1,13 +1,13 @@
 import { Link, useHistory } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth';
-import { deleteOne, like } from '../../service/acticles-service';
+import { deleteOne, like, unlike } from '../../service/acticles-service';
 
 const Main = ({
     article,
-    addLike,
+    updateArticle,
 }) => {
     let liked = true;
-    
+    console.log(updateArticle);
     let history = useHistory();
     let { auth } = useAuth();
     
@@ -25,7 +25,14 @@ const Main = ({
     const onLike = (e) => {
         like(auth._id, article._id)
             .then(data => {
-                addLike(data);
+                updateArticle(data);
+            });
+    };
+
+    const onUnlike = (e) => {
+        unlike(auth._id, article._id)
+            .then(data => {
+                updateArticle(data);
             });
     };
 
@@ -34,7 +41,7 @@ const Main = ({
             <Link to={`/edit/${article._id}`} ><button style={{ 'position': 'absolute', 'right': '360px', 'top': '18px' }} className="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i className="fa fa-edit"></i></button></Link>
             <button onClick={onDelete} style={{ 'position': 'absolute', 'right': '320px', 'top': '18px' }} className="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i className="fa fa-trash"></i></button>
             {liked
-                ? ''
+                ? <button onClick={onUnlike} type="button" style={{ 'position': 'absolute', 'right': '255px', 'top': '15px' }} class="btn btn-dark">Unlike</button>
                 : <button onClick={onLike} type="button" style={{ 'position': 'absolute', 'right': '255px', 'top': '15px' }} class="btn btn-primary">Like</button>
             }
             <span style={{ 'position': 'absolute', 'right': '230px', 'top': '21px' }} >{article.likes ? article.likes.length : ''}</span>

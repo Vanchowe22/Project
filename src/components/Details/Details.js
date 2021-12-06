@@ -7,7 +7,7 @@ const Details = ({
 }) => {
     const [article, setArticle] = useFetchOne(getOne, match.params.id);
     
-    const addLike = (article) => {
+    const updateArticle = (article) => {
         setArticle(article);
     };
 
@@ -22,7 +22,7 @@ const Details = ({
             <div className="row tm-row">
                 <div className="col-lg-8 tm-post-col">
                     <div className="tm-post-full">
-                        <Main article={article}  addLike={addLike} />
+                        <Main article={article}  updateArticle={updateArticle} />
                         <CommentSection id={match.params.id} />
                     </div>
                 </div>

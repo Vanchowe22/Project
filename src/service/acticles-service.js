@@ -52,3 +52,14 @@ export const like = (userId, blogId) => {
     })
         .then(res => res.json());
 };
+
+export const unlike = (userId, blogId) => {
+    return fetch(`${baseUrl}/${blogId}/unlike`, {
+        method:'POST',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({userId}),
+    })
+        .then(res => res.json());
+};
