@@ -8,7 +8,7 @@ import Contact from "./components/Contact/Contact";
 import Create from "./components/Create/Create";
 import Logout from "./components/Auth/Logout";
 
-import AuthContext from "./contexts/AuthContext";
+import AuthContext, { AuthProvider } from "./contexts/AuthContext";
 
 import useLocalStorage from "./hooks/useLocalStorage";
 import { Route, Switch } from "react-router-dom";
@@ -21,20 +21,10 @@ const initState = {
 }
 
 function App() {
-    const [auth, setAuth] = useLocalStorage('userInfo', initState)
-
-    const onLogin = (user) => {
-        setAuth(user)
-    }
-
-    const onLogout = () => {
-        setAuth(initState);
-    }
-
-    console.log(auth);
+    
     return (
         <>
-            <AuthContext.Provider value={{ auth, onLogin, onLogout }}>
+            <AuthProvider>
                 <Header />
                 <div className="container-fluid">
                     <main className="tm-main">
@@ -54,7 +44,7 @@ function App() {
                         <Footer />
                     </main>
                 </div>
-            </AuthContext.Provider>
+            </AuthProvider>
         </>
 
     );
