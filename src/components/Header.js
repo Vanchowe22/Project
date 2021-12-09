@@ -1,9 +1,8 @@
-import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import AuthContext from "../contexts/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 
 const Header = () => {
-    let { auth } = useContext(AuthContext);
+    let { auth } = useAuth();
     let user = (
         <>
             <li className="tm-nav-item"><NavLink to="/create" className="tm-nav-link active">

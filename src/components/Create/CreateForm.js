@@ -1,13 +1,12 @@
-import { useContext } from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 
 import { create } from "../../service/acticles-service";
-import AuthContext from "../../contexts/AuthContext";
-const CreateForm = () => {
+import { useAuth } from "../../hooks/useAuth";
 
+const CreateForm = () => {
     let history = useHistory();
 
-    let { auth } = useContext(AuthContext);
+    let { auth } = useAuth();
 
     const submit = (e) => {
         e.preventDefault();
@@ -20,10 +19,14 @@ const CreateForm = () => {
             imageUrl: formData.get('imageUrl'),
             description: formData.get('message'),
             date: Date.now(),
-            owner:auth._id,
+            owner: auth._id,
         };
 
-        create(post)
+        if (!auth._id) {
+            return <Redirect to='/login' />
+        }
+
+        create(post, auth._id)
             .then(data => {
                 history.push('/');
             })

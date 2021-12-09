@@ -1,6 +1,9 @@
+import SecureRoutes from "../../hoc/SecureRoutes";
 import CreateForm from "./CreateForm";
 
-const Create = () => {
+const Create = ({
+    
+}) => {
     return (
         <section className="contact section-padding" >
             <div className="container">
@@ -22,4 +25,4 @@ const Create = () => {
     );
 };
 
-export default Create;
+export default SecureRoutes(Create);
