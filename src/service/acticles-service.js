@@ -22,20 +22,24 @@ export const commentOne = (data, id) => {
     }).then(res => res.json())
 }
 
-export const editOne = (id, data) => {
+export const editOne = (id, data, authorization) => {
     return fetch(`${baseUrl}/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
+            'X-Authorization': authorization,
         },
         body: JSON.stringify(data)
     })
         .then(res => res.json());
 };
 
-export const deleteOne = (id) => {
+export const deleteOne = (id, authorization) => {
     return fetch(`${baseUrl}/${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            'X-Authorization': authorization,
+        }
     })
         .then(res => res.json());
 };
@@ -44,22 +48,22 @@ export const search = (query) => fetch(`http://localhost:5000/search?name=${quer
 
 export const like = (userId, blogId) => {
     return fetch(`${baseUrl}/${blogId}/like/`, {
-        method:'POST',
-        headers:{
-            'Content-Type':'application/json'
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
         },
-        body:JSON.stringify({userId}),
+        body: JSON.stringify({ userId }),
     })
         .then(res => res.json());
 };
 
 export const unlike = (userId, blogId) => {
     return fetch(`${baseUrl}/${blogId}/unlike`, {
-        method:'POST',
+        method: 'POST',
         headers: {
-            'Content-Type':'application/json'
+            'Content-Type': 'application/json'
         },
-        body:JSON.stringify({userId}),
+        body: JSON.stringify({ userId }),
     })
         .then(res => res.json());
 };

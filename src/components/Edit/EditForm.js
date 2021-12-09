@@ -1,21 +1,25 @@
 import { editOne, getOne } from "../../service/acticles-service";
-import { useHistory } from 'react-router-dom'
+import { useHistory, Redirect } from 'react-router-dom'
 import useFetchOne from '../../hooks/useFetchOne';
+import { useAuth } from "../../hooks/useAuth";
 
 const EditForm = ({
     match
 }) => {
     let history = useHistory();
+    let { auth } = useAuth();
+    const [article] = useFetchOne(getOne, match.params.id, false);
 
-    const article = useFetchOne(getOne, match.params.id, false);
+    if (article.owner && article.owner._id != auth._id) {
+        return <Redirect to='/' />
+    }
     const submitHandler = (e) => {
         e.preventDefault();
 
         let form = e.currentTarget;
         let formData = Object.fromEntries(new FormData(form));
 
-        console.log(formData);
-        editOne(match.params.id, formData)
+        editOne(match.params.id, formData, auth.token)
             .then(() => {
                 form.reset();
                 history.push(`/details/${match.params.id}`);

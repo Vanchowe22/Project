@@ -8,17 +8,10 @@ import Contact from "./components/Contact/Contact";
 import Create from "./components/Create/Create";
 import Logout from "./components/Auth/Logout";
 
-import AuthContext, { AuthProvider } from "./contexts/AuthContext";
+import  { AuthProvider } from "./contexts/AuthContext";
 
-import useLocalStorage from "./hooks/useLocalStorage";
 import { Route, Switch } from "react-router-dom";
 import Edit from "./components/Edit/Edit";
-
-const initState = {
-    _id: '',
-    email: '',
-    token: '',
-}
 
 function App() {
     
