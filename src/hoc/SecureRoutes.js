@@ -1,7 +1,7 @@
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
-const SecureRoutes = (Component) => {
+export const SecureRoutes = (Component) => {
     const WrapperComponent = (props) => {
         let user = useAuth();
         console.log(user.email ? 'yes' : 'no');
@@ -11,6 +11,12 @@ const SecureRoutes = (Component) => {
     };
 
     return WrapperComponent
+};
+
+export const isOwner = (Component) => {
+    const WrapperComponent = (props) => {
+
+    };
 };
 
 export default SecureRoutes;

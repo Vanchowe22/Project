@@ -1,16 +1,17 @@
 import Main from "./Main";
 import CommentSection from "./CommentSection";
-import { getOne } from "../../service/acticles-service";
-import useFetchOne from "../../hooks/useFetchOne";
+import { useArticle } from '../../hooks/useArticle';
+import useDetails from "../../hooks/useDetails";
+
 const Details = ({
     match
 }) => {
-    const [article, setArticle] = useFetchOne(getOne, match.params.id);
+    const { article, setArticle } = useArticle();
+    useDetails(setArticle, match.params.id);
     
-    const updateArticle = (article) => {
-        setArticle(article);
+    const updateArticle = (data) => {
+        setArticle(data)
     };
-
     return (
         <>
             <div className="row tm-row">
@@ -22,7 +23,7 @@ const Details = ({
             <div className="row tm-row">
                 <div className="col-lg-8 tm-post-col">
                     <div className="tm-post-full">
-                        <Main article={article}  updateArticle={updateArticle} />
+                        <Main article={article} updateArticle={updateArticle} />
                         <CommentSection id={match.params.id} />
                     </div>
                 </div>
