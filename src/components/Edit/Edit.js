@@ -1,4 +1,3 @@
-import SecureRoutes from "../../hoc/SecureRoutes";
 import EditForm from "./EditForm";
 
 const Edit = ({
@@ -23,4 +22,4 @@ const Edit = ({
     );
 };
 
-export default SecureRoutes(Edit);
+export default Edit;

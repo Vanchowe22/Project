@@ -1,8 +1,8 @@
-import SecureRoutes from "../../hoc/SecureRoutes";
+import { SecureRoutes } from "../../hoc/SecureRoutes";
 import CreateForm from "./CreateForm";
 
 const Create = ({
-    
+
 }) => {
     return (
         <section className="contact section-padding" >

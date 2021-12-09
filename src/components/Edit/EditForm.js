@@ -1,18 +1,16 @@
-import { editOne, getOne } from "../../service/acticles-service";
-import { useHistory, Redirect } from 'react-router-dom'
-import useFetchOne from '../../hooks/useFetchOne';
+import { editOne } from "../../service/acticles-service";
+import { useHistory } from 'react-router-dom'
 import { useAuth } from "../../hooks/useAuth";
+import { useArticle } from "../../hooks/useArticle";
+import { isOwner } from "../../hoc/SecureRoutes";
 
 const EditForm = ({
     match
 }) => {
     let history = useHistory();
     let { auth } = useAuth();
-    const [article] = useFetchOne(getOne, match.params.id, false);
+    const { article } = useArticle();
 
-    if (article.owner && article.owner._id != auth._id) {
-        return <Redirect to='/' />
-    }
     const submitHandler = (e) => {
         e.preventDefault();
 
@@ -56,4 +54,4 @@ const EditForm = ({
     );
 };
 
-export default EditForm;
+export default isOwner(EditForm);

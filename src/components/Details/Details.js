@@ -6,12 +6,9 @@ import useDetails from "../../hooks/useDetails";
 const Details = ({
     match
 }) => {
-    const { article, setArticle } = useArticle();
-    useDetails(setArticle, match.params.id);
-    
-    const updateArticle = (data) => {
-        setArticle(data)
-    };
+    const { article, updateArticle } = useArticle();
+    useDetails(updateArticle, match.params.id);
+
     return (
         <>
             <div className="row tm-row">

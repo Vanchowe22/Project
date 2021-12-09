@@ -7,8 +7,12 @@ export const ArticleProvider = ({
 }) => {
     const [article, setArticle] = useState({});
 
+    const updateArticle = (data) => {
+        setArticle(data);
+    }
+
     return (
-        <ArticleContext.Provider value={{ article, setArticle }}>
+        <ArticleContext.Provider value={{ article, updateArticle }}>
             {children}
         </ArticleContext.Provider >
     );
