@@ -2,9 +2,9 @@ import { useState } from "react";
 
 const useLocalStorage = (name, initState) => {
     const [state, setState] = useState(() => {
-        let userInfo = localStorage.getItem(name);
+        let data = localStorage.getItem(name);
 
-        return userInfo ? JSON.parse(userInfo) : initState;
+        return data ? JSON.parse(data) : initState;
     });
 
     const setItem = (userInfo) => {

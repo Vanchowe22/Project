@@ -1,12 +1,12 @@
 import { createContext, useState } from 'react';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 const ArticleContext = createContext();
 
 export const ArticleProvider = ({
     children
 }) => {
-    const [article, setArticle] = useState({});
-
+    const [article, setArticle] = useLocalStorage('articleData', {});
     const updateArticle = (data) => {
         setArticle(data);
     }
