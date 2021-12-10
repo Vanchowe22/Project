@@ -1,28 +1,25 @@
-import { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import AuthContext from "../../contexts/AuthContext";
 import { login } from "../../service/auth-service";
+import { useAuth } from "../../hooks/useAuth"
+import { useNotification } from "../../hooks/useNotification";
+import { types } from '../../contexts/NotificationContext'
 
 const Login = () => {
     let history = useHistory();
+    let { onLogin } = useAuth();
+    let { updateNotification } = useNotification();
 
-    let { onLogin } = useContext(AuthContext)
-    const submit = (e) => {
+    const submitHandler = (e) => {
         e.preventDefault();
+        let formData = Object.fromEntries(new FormData(e.currentTarget));
 
-        let formData = new FormData(e.currentTarget);
-
-        let user = {
-            email: formData.get('email'),
-            password: formData.get('pass'),
-        }
-
-        login(user)
+        login(formData)
             .then((data) => {
                 onLogin(data);
+                updateNotification(`Successfully logged in!`, types.success)
                 history.push('/');
             });
-    }
+    };
 
     return (
         <section className="sign-in">
@@ -35,14 +32,14 @@ const Login = () => {
 
                     <div className="signin-form">
                         <h2 className="form-title">Sign in</h2>
-                        <form onSubmit={submit} className="register-form" id="login-form">
-                            <div className="form-group">
+                        <form onSubmit={submitHandler} className="register-form" id="login-form">
+                            <div className={`form-group`} >
                                 <label html="your_name"><i className="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="email" name="email" id="email" placeholder="Your Email" />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="your_pass"><i className="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="pass" id="pass" placeholder="Password" />
+                                <input type="password" name="password" id="password" placeholder="Password" />
                             </div>
                             <div className="form-group form-button">
                                 <input type="submit" name="signin" id="signin" className="form-submit" value="Log in" />

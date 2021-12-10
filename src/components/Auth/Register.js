@@ -1,30 +1,25 @@
-import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import AuthContext from '../../contexts/AuthContext';
 import { register } from "../../service/auth-service";
-
+import { useAuth } from "../../hooks/useAuth"
+import { useNotification } from "../../hooks/useNotification";
+import { types } from '../../contexts/NotificationContext'
 
 const Register = () => {
     let history = useHistory();
-    let { onLogin } = useContext(AuthContext)
+    let { onLogin } = useAuth();
+    const { updateNotification } = useNotification();
+
     const submit = (e) => {
         e.preventDefault();
-        
-        
-        let formData = new FormData(e.currentTarget);
 
-        let user = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            password: formData.get('pass'),
-            rePassword: formData.get('rePass'),
-        };
+        let formData = Object.fromEntries(new FormData(e.currentTarget));
 
-        register(user)
+        register(formData)
             .then((data) => {
-                onLogin(data)
-                history.push('/')
+                updateNotification(`Successfully registered!`, types.success);
+                onLogin(data);
+                history.push('/');
             });
 
     }
