@@ -1,13 +1,17 @@
 import { useEffect } from "react"
 import { getOne } from "../service/acticles-service";
+import { useArticle } from "./useArticle";
 
-const useDetails = (setArticle, id) => {
+const useDetails = (id) => {
+    const { article, updateArticle } = useArticle();
     useEffect(() => {
         getOne(id)
             .then(data => {
-                setArticle(data);
+                updateArticle(data);
             })
-    });
+    }, [id]);
+
+    return [article, updateArticle];
 }
 
 export default useDetails;

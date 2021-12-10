@@ -6,8 +6,7 @@ import useDetails from "../../hooks/useDetails";
 const Details = ({
     match
 }) => {
-    const { article, updateArticle } = useArticle();
-    useDetails(updateArticle, match.params.id);
+    const [article, updateArticle] = useDetails(match.params.id);
 
     return (
         <>
