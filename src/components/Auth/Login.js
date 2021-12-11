@@ -18,6 +18,9 @@ const Login = () => {
                 onLogin(data);
                 updateNotification(`Successfully logged in!`, types.success)
                 history.push('/');
+            })
+            .catch(err => {
+                updateNotification(err, types.error)
             });
     };
 
