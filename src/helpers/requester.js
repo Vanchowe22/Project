@@ -1,46 +1,35 @@
-const request = async (method, url, data) => {
-    let result = null;
+const request = (method, url, data, token) => {
+    const options = {
+        method,
+    };
 
-    if (method == 'GET') {
-        result = fetch(url);
-    } else {
-        result = fetch(url, {
-            method,
-            headers: {
-                'content-type': 'application/json',
-                'X-Authorization': getToken()
-            },
-            body: JSON.stringify(data)
-        });
-    }
+    if (['POST', 'PUT', 'DELETE'].includes(method)) {
+        if (method == 'DELETE') {
+            options.headers = {
+                'X-Authorization': token,
+            }
+        } else {
+            options.headers = {
+                'Content-Type': 'application/json'
+            }
 
-    return result.then(responseHandler);
-};
+            if (token) {
+                options.headers['X-Authorization'] = token;
+            }
 
-async function responseHandler(res) {
-    let jsonData = await res.json();
-    console.log(jsonData);
-    if (res.ok) {
-        return jsonData;
-    } else {
-        throw jsonData;
-    }
-};
-
-function getToken() {
-    try {
-        let userItem = localStorage.getItem('userInfo');
-
-        if (!userItem) {
-            throw { message: 'You must be authenticated' };
+            options.body = JSON.stringify(data);
         }
-
-        let user = JSON.parse(userItem);
-
-        return user.accessToken;
-    } catch (err) {
-        console.log(err);
     }
+    return fetch(url, options).then(handleRespond);
+}
+
+async function handleRespond(res) {
+    let result = await res.json();
+    if (!res.ok) {
+        throw result;
+    }
+
+    return result;
 }
 
 export const get = request.bind(null, 'GET');

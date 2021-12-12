@@ -15,7 +15,7 @@ const Main = ({
         liked = article.likes.some(x => x == auth._id);
     }
 
-    const onDelete = () => {
+    const onDelete = (e) => {
         deleteOne(article._id, auth.token)
             .then(data => {
                 history.push('/')

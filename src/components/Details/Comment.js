@@ -11,7 +11,6 @@ const Comment = ({
                     {comment.text}
                 </p>
                 <div className="d-flex justify-content-between">
-                    <a href="#" className="tm-color-primary">REPLY  </a>
                     <span className="tm-color-primary">{comment.date}</span>
                 </div>
             </div>

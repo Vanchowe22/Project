@@ -20,6 +20,9 @@ const Register = () => {
                 updateNotification(`Successfully registered!`, types.success);
                 onLogin(data);
                 history.push('/');
+            })
+            .catch(err => {
+                updateNotification(err, types.error);
             });
 
     }

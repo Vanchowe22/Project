@@ -25,7 +25,7 @@ const CommentForm = ({
         commentOne(comment, id)
             .then(data => {
                 form.reset();
-                setComments(data.comments)
+                setComments(data)
             })
     }
 
