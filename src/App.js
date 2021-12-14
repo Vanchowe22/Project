@@ -7,6 +7,7 @@ import Details from "./components/Details/Details";
 import Contact from "./components/Contact/Contact";
 import Create from "./components/Create/Create";
 import Logout from "./components/Auth/Logout";
+import MyProfile from "./components/MyProfile/MyProfile";
 
 import { AuthProvider } from "./contexts/AuthContext";
 
@@ -32,6 +33,7 @@ function App() {
                                     <Route path='/all-blogs'>
                                         <Articles allBlogs={true} />
                                     </Route>
+                                    <Route path='/my-profile' component={MyProfile} />
                                     <Route path='/' exact component={Articles} />,
                                     <Route path='/login' component={Login} />,
                                     <Route path='/register' component={Register} />,

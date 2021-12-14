@@ -9,6 +9,10 @@ const Header = () => {
                 <i className="fas fa-plus-circle"></i>
                 Create
             </NavLink></li>
+            <li className="tm-nav-item"><NavLink to="/my-profile" className="tm-nav-link active">
+                <i className="fas fa-user"></i>
+                My Profile
+            </NavLink></li>
             <li className="tm-nav-item"><NavLink to="/logout" className="tm-nav-link active">
                 <i className="fas fa-sign-out-alt"></i>
                 Logout

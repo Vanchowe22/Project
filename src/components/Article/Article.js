@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 
 const Article = ({
     article,
+    profileName
 }) => {
+    console.log(profileName);
 
     return (
         <article className="col-12 col-md-6 tm-post">
@@ -22,7 +24,10 @@ const Article = ({
             </div>
             <hr />
             <div className="d-flex justify-content-between">
-                <span>by {article.owner.name}</span>
+                <span>by {article.owner.name != undefined
+                    ? article.owner.name
+                    : profileName
+                }</span>
             </div>
         </article>
     )

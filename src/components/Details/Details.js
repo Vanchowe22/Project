@@ -1,6 +1,5 @@
 import Main from "./Main";
 import CommentSection from "./CommentSection";
-import { useArticle } from '../../hooks/useArticle';
 import useDetails from "../../hooks/useDetails";
 
 const Details = ({

@@ -1,25 +1,21 @@
 const request = (method, url, data, token) => {
     const options = {
         method,
+        headers: {},
     };
 
-    if (['POST', 'PUT', 'DELETE'].includes(method)) {
-        if (method == 'DELETE') {
-            options.headers = {
-                'X-Authorization': token,
-            }
-        } else {
-            options.headers = {
-                'Content-Type': 'application/json'
-            }
-
-            if (token) {
-                options.headers['X-Authorization'] = token;
-            }
-
-            options.body = JSON.stringify(data);
+    if (['POST', 'PUT'].includes(method)) {
+        options.headers = {
+            'Content-Type': 'application/json'
         }
+
+        options.body = JSON.stringify(data);
     }
+
+    if (token) {
+        options.headers['X-Authorization'] = token;
+    }
+    console.log(options);
     return fetch(url, options).then(handleRespond);
 }
 
