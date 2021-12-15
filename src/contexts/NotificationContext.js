@@ -4,7 +4,6 @@ const NotificationContext = createContext();
 
 export const types = {
     error: 'danger',
-    warn: 'warning',
     info: 'info',
     success: 'success',
 };

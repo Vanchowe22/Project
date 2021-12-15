@@ -1,6 +1,9 @@
 import { sendEmail } from '../../service/contact-service'
+import { useNotification } from '../../hooks/useNotification';
+import { types } from '../../contexts/NotificationContext';
 
 const ContactForm = () => {
+    const { updateNotification } = useNotification();
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -17,10 +20,10 @@ const ContactForm = () => {
         sendEmail(message)
             .then(() => {
                 form.reset();
-                alert('Email was sent');
+                updateNotification('Successfully sent', types.info);
             })
             .catch(err => {
-                alert(err);
+                updateNotification(err, types.error);
             })
     };
 

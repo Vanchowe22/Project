@@ -1,5 +1,7 @@
 import { Link, useHistory } from 'react-router-dom'
+import { types } from '../../contexts/NotificationContext';
 import { useAuth } from '../../hooks/useAuth';
+import { useNotification } from '../../hooks/useNotification';
 import { deleteOne, like, unlike } from '../../service/acticles-service';
 
 const Main = ({
@@ -7,9 +9,9 @@ const Main = ({
     updateArticle,
 }) => {
     let liked = true;
-
     let history = useHistory();
     let { auth } = useAuth();
+    let { updateNotification } = useNotification();
 
     if (article.likes) {
         liked = article.likes.some(x => x == auth._id);
@@ -18,7 +20,11 @@ const Main = ({
     const onDelete = (e) => {
         deleteOne(article._id, auth.token)
             .then(data => {
-                history.push('/')
+                history.push('/');
+                updateNotification('Successfully deleted!', types.info);
+            })
+            .catch(err => {
+                updateNotification(err, types.error);
             });
     };
 
@@ -26,6 +32,9 @@ const Main = ({
         like(auth._id, article._id)
             .then(data => {
                 updateArticle(data);
+            })
+            .catch(err => {
+                updateNotification(err, types.error);
             });
     };
 
@@ -33,6 +42,9 @@ const Main = ({
         unlike(auth._id, article._id)
             .then(data => {
                 updateArticle(data);
+            })
+            .catch(err => {
+                updateNotification(err, types.error);
             });
     };
 

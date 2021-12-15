@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom'
 import { useAuth } from "../../hooks/useAuth";
 import { useArticle } from "../../hooks/useArticle";
 import { isOwner } from "../../hoc/SecureRoutes";
+import { useNotification } from '../../hooks/useNotification'
+import { types } from "../../contexts/NotificationContext";
 
 const EditForm = ({
     match
@@ -10,6 +12,7 @@ const EditForm = ({
     let history = useHistory();
     let { auth } = useAuth();
     const { article } = useArticle();
+    const { updateNotification } = useNotification();
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -20,8 +23,12 @@ const EditForm = ({
         editOne(match.params.id, formData, auth.token)
             .then(() => {
                 form.reset();
+                updateNotification('Successfully updated!', types.info);
                 history.push(`/details/${match.params.id}`);
             })
+            .catch(err => {
+                updateNotification(err, types.error)
+            });
     };
 
 

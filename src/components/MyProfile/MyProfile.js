@@ -1,6 +1,7 @@
 import useFetchProfile from "../../hooks/useFetchProfile";
 import Article from "../Article/Article"
 import { useAuth } from '../../hooks/useAuth'
+import { SecureRoutes } from "../../hoc/SecureRoutes";
 const MyProfile = () => {
     let { auth } = useAuth();
 
@@ -14,10 +15,10 @@ const MyProfile = () => {
             <h1 className="center-blue-mid">My Profile</h1>
 
             <div className="row tm-row">
-                {profile.myPosts?.map(x => <Article key={x._id} article={x}p profileName={profile.name} />)}
+                {profile.myPosts?.map(x => <Article key={x._id} article={x} p profileName={profile.name} />)}
             </div>
         </>
     );
 };
 
-export default MyProfile;
+export default SecureRoutes(MyProfile);

@@ -1,11 +1,10 @@
-import { useArticle } from '../../hooks/useArticle';
 import Comment from './Comment';
 import CommentForm from './CommentForm';
 
 const CommentSection = ({
-    id
+    article,
+    updateArticle
 }) => {
-    const { article, updateArticle } = useArticle();
     return (    
         <div>
             <h2 className="tm-color-primary tm-post-title">Comments</h2>
@@ -17,7 +16,7 @@ const CommentSection = ({
                     })
                     : ''
             }
-            <CommentForm id={id} setComments={updateArticle} />
+            <CommentForm id={article._id} setComments={updateArticle} />
         </div>
     );
 };

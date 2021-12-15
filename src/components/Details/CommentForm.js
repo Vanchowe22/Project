@@ -1,14 +1,15 @@
-import { useContext } from 'react';
 import uniqid from 'uniqid'
-
-import AuthContext from '../../contexts/AuthContext';
+import { types } from '../../contexts/NotificationContext';
+import { useAuth } from '../../hooks/useAuth';
+import { useNotification } from '../../hooks/useNotification';
 import { commentOne } from '../../service/acticles-service';
 
 const CommentForm = ({
     id,
     setComments,
 }) => {
-    let { auth } = useContext(AuthContext);
+    let { auth } = useAuth();
+    let { updateNotification } = useNotification();
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -25,7 +26,10 @@ const CommentForm = ({
         commentOne(comment, id)
             .then(data => {
                 form.reset();
-                setComments(data)
+                setComments(data);
+            })
+            .catch(err => {
+                updateNotification(err, types.error);
             })
     }
 
