@@ -17,7 +17,7 @@ const CommentForm = ({
         let formData = new FormData(form);
 
         let comment = {
-            name: formData.get('name'),
+            name: auth.name,
             _id: auth._id,
             keyId: uniqid(),
             text: formData.get('message'),
@@ -36,12 +36,6 @@ const CommentForm = ({
     return (
         <form onSubmit={submitHandler} className="mb-5 tm-comment-form">
             <h2 className="tm-color-primary tm-post-title mb-4">Your comment</h2>
-            <div className="mb-4">
-                <input className="form-control" name="name" type="text" placeholder="Name..." />
-            </div>
-            <div className="mb-4">
-                <input className="form-control" name="email" type="text" placeholder="Email..." />
-            </div>
             <div className="mb-4">
                 <textarea className="form-control" name="message" rows="6" placeholder="Text..."></textarea>
             </div>
