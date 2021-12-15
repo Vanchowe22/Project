@@ -53,7 +53,7 @@ const Header = () => {
                             All Blogs
                         </NavLink></li>
                         {
-                            auth.email
+                            auth.name
                                 ? user
                                 : guest
                         }

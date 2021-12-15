@@ -6,7 +6,7 @@ export const SecureRoutes = (Component) => {
     const WrapperComponent = (props) => {
         let { auth } = useAuth();
 
-        return auth.email
+        return auth.name
             ? <Component {...props} auth={auth} />
             : <Redirect to='login' />
     };
@@ -18,8 +18,7 @@ export const isOwner = (Component) => {
     const WrapperComponent = (props) => {
         let { article } = useArticle();
         let { auth } = useAuth();
-        console.log(article);
-        console.log(auth);
+
         if (article.owner._id == auth._id) {
             return <Component {...props} />
         } else {

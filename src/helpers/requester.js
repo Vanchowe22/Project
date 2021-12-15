@@ -15,7 +15,7 @@ const request = (method, url, data, token) => {
     if (token) {
         options.headers['X-Authorization'] = token;
     }
-    console.log(options);
+
     return fetch(url, options).then(handleRespond);
 }
 

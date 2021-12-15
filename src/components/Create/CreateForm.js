@@ -2,12 +2,13 @@ import { useHistory, Redirect } from 'react-router-dom';
 
 import { create } from "../../service/acticles-service";
 import { useAuth } from "../../hooks/useAuth";
+import { useNotification } from '../../hooks/useNotification';
+import { types } from '../../contexts/NotificationContext';
 
 const CreateForm = () => {
     let history = useHistory();
-
     let { auth } = useAuth();
-
+    const { updateNotification } = useNotification();
     const submit = (e) => {
         e.preventDefault();
 
@@ -18,7 +19,6 @@ const CreateForm = () => {
             type: formData.get('genre'),
             imageUrl: formData.get('imageUrl'),
             description: formData.get('message'),
-            date: Date.now(),
             owner: auth._id,
         };
 
@@ -29,7 +29,11 @@ const CreateForm = () => {
         create(post, auth._id)
             .then(data => {
                 history.push('/');
+                updateNotification(`You've created new post!`, types.info);
             })
+            .catch(err => {
+                updateNotification(err, types.error);
+            });
     }
 
     return (
