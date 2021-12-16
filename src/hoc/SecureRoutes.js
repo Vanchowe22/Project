@@ -19,11 +19,22 @@ export const isOwner = (Component) => {
         let { article } = useArticle();
         let { auth } = useAuth();
 
-        if (article.owner._id == auth._id) {
-            return <Component {...props} />
-        } else {
-            return <Redirect to='/' />
-        }
+        return article.owner._id == auth._id
+            ? <Component {...props} />
+            : <Redirect to='/' />
+
     };
+    return WrapperComponent;
+};
+
+export const isLogged = (Component) => {
+    const WrapperComponent = (props) => {
+        let { auth } = useAuth();
+
+        return auth.name
+            ? <Redirect to='/' />
+            : <Component {...props} auth={auth} />
+    }
+
     return WrapperComponent;
 };

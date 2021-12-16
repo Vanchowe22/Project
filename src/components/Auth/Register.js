@@ -4,6 +4,7 @@ import { register } from "../../service/auth-service";
 import { useAuth } from "../../hooks/useAuth"
 import { useNotification } from "../../hooks/useNotification";
 import { types } from '../../contexts/NotificationContext'
+import { isLogged } from '../../hoc/SecureRoutes';
 
 const Register = () => {
     let history = useHistory();
@@ -65,4 +66,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default isLogged(Register);

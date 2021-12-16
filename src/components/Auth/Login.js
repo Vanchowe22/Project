@@ -3,6 +3,7 @@ import { login } from "../../service/auth-service";
 import { useAuth } from "../../hooks/useAuth"
 import { useNotification } from "../../hooks/useNotification";
 import { types } from '../../contexts/NotificationContext'
+import { isLogged } from "../../hoc/SecureRoutes";
 
 const Login = () => {
     let history = useHistory();
@@ -56,4 +57,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default isLogged(Login);
