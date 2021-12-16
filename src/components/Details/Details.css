@@ -1,0 +1,25 @@
+.btn-edit {
+    position: absolute;
+    right: 360px;
+    top: 18px;
+}
+.btn-delete {
+    position: absolute;
+    right: 320px;
+    top: 18px
+}
+.btn-unlike {
+    position: absolute;
+    right: 255px;
+    top: 15px;
+}
+.btn-like {
+    position: absolute;
+    right: 255px;
+    top: 15px
+}
+.span-likes {
+    position: absolute;
+    right: 210px;
+    top: 21px 
+}

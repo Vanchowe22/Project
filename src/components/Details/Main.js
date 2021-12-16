@@ -3,6 +3,7 @@ import { types } from '../../contexts/NotificationContext';
 import { useAuth } from '../../hooks/useAuth';
 import { useNotification } from '../../hooks/useNotification';
 import { deleteOne, like, unlike } from '../../service/acticles-service';
+import './Details.css'
 
 const Main = ({
     article,
@@ -55,17 +56,17 @@ const Main = ({
                     ? article.owner && (article.owner._id == auth._id)
                         ?
                         <>
-                            <Link to={`/edit/${article._id}`} ><button style={{ 'position': 'absolute', 'right': '360px', 'top': '18px' }} className="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i className="fa fa-edit"></i></button></Link>
-                            <button onClick={onDelete} style={{ 'position': 'absolute', 'right': '320px', 'top': '18px' }} className="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i className="fa fa-trash"></i></button>
+                            <Link to={`/edit/${article._id}`} ><button className="btn btn-success btn-sm rounded-0 btn-edit" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i className="fa fa-edit"></i></button></Link>
+                            <button onClick={onDelete} className="btn btn-danger btn-sm rounded-0 btn-delete" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i className="fa fa-trash"></i></button>
                         </>
                         :
                         liked
-                            ? <button onClick={onUnlike} type="button" style={{ 'position': 'absolute', 'right': '255px', 'top': '15px' }} className="btn btn-dark">Unlike</button>
-                            : <button onClick={onLike} type="button" style={{ 'position': 'absolute', 'right': '255px', 'top': '15px' }} className="btn btn-primary">Like</button>
+                            ? <button onClick={onUnlike} type="button" className="btn btn-dark btn-unlike">Unlike</button>
+                            : <button onClick={onLike} type="button" className="btn btn-primary btn-like">Like</button>
                     : ''
             }
 
-            <span style={{ 'position': 'absolute', 'right': '210px', 'top': '21px' }} >{article.likes ? article.likes.length : ''} likes</span>
+            <span className='span-likes'>{article.likes ? article.likes.length : ''} likes</span>
             <h2 className="pt-2 tm-color-primary tm-post-title">{article.title}</h2>
             <p className="tm-mb-40">{article.date} posted by {article.owner ? article.owner.name : ''} </p>
             <p>

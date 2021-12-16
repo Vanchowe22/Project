@@ -77,9 +77,6 @@ const Header = () => {
                         <i className="fab fa-linkedin tm-social-icon"></i>
                     </a>
                 </div>
-                <p className="tm-mb-80 pr-5 text-white">
-                    Xtra Blog is a multi-purpose HTML template from TemplateMo website. Left side is a sticky menu bar. Right side content will scroll up and down.
-                </p>
             </div>
         </header>
     )
