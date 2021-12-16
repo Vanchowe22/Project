@@ -16,11 +16,11 @@ export const AuthProvider = ({
 
     const onLogin = useCallback((user) => {
         setAuth(user)
-    });
+    }, [setAuth]);
 
     const onLogout = useCallback(() => {
         setAuth(initState);
-    });
+    }, [setAuth]);
 
     return (
         <AuthContext.Provider value={{ auth, onLogin, onLogout }} >

@@ -9,7 +9,7 @@ const useDetails = (id) => {
             .then(data => {
                 updateArticle(data);
             })
-    }, [id]);
+    }, [id, updateArticle]);
 
     return [article, updateArticle];
 }

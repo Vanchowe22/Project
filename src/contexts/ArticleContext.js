@@ -10,7 +10,7 @@ export const ArticleProvider = ({
 
     const updateArticle = useCallback((data) => {
         setArticle(data);
-    });
+    }, [setArticle]);
 
     return (
         <ArticleContext.Provider value={{ article, updateArticle }}>
