@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useCallback } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
 
 const ArticleContext = createContext();
@@ -7,9 +7,10 @@ export const ArticleProvider = ({
     children
 }) => {
     const [article, setArticle] = useLocalStorage('articleData', {});
-    const updateArticle = (data) => {
+
+    const updateArticle = useCallback((data) => {
         setArticle(data);
-    }
+    });
 
     return (
         <ArticleContext.Provider value={{ article, updateArticle }}>
