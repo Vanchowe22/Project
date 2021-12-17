@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 const useLocalStorage = (name, initState) => {
     const [state, setState] = useState(() => {
@@ -7,10 +7,10 @@ const useLocalStorage = (name, initState) => {
         return data ? JSON.parse(data) : initState;
     });
 
-    const setItem = (userInfo) => {
+    const setItem = useCallback((userInfo) => {
         localStorage.setItem(name, JSON.stringify(userInfo));
         return setState(userInfo);
-    }
+    }, [name])
 
     return [state, setItem];
 }

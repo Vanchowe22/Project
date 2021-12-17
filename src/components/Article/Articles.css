@@ -1,6 +1,7 @@
 .center-blue-mid {
-    position: absolute;
-    top: -7px;
-    right: 710px;
+    text-align: center;
+    margin-right: 165px;
+    margin-top: -20px;
+    padding: 25px;
     color: #3cc;
 }

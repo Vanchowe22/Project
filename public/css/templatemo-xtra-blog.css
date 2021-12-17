@@ -73,7 +73,7 @@ hr {
 
 .tm-main {
     margin-left: 400px;
-    padding: 80px 100px 25px;
+    padding: 60px 175px 25px;
 }
 
 .tm-post { max-width: 470px; }
@@ -367,7 +367,7 @@ figcaption { line-height: 1.4; }
 .tm-mb-60 { margin-bottom: 60px; }
 .tm-mb-65 { margin-bottom: 65px; }
 .tm-mb-75 { margin-bottom: 75px; }
-.tm-mb-80 { margin-bottom: 80px; }
+.tm-mb-80 { margin-bottom: 80px; margin-right: 145px;}
 .tm-mb-120 { margin-bottom: 120px; }
 .tm-mt-40 { margin-top: 40px; }
 .tm-mt-100 { margin-top: 100px; }

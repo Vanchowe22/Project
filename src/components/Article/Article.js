@@ -4,8 +4,6 @@ const Article = ({
     article,
     profileName
 }) => {
-    console.log(profileName);
-
     return (
         <article className="col-12 col-md-6 tm-post">
             <hr className="tm-hr-primary" />
