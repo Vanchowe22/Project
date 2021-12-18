@@ -19,3 +19,5 @@ export const search = (query) => get(`http://localhost:5000/search?name=${query}
 export const like = (userId, blogId) => post(`${baseUrl}/${blogId}/like/`, { userId })
 
 export const unlike = (userId, blogId) => post(`${baseUrl}/${blogId}/unlike`, { userId })
+
+export const getRelated = (genre, id) => get(`${baseUrl}/related/${genre}/${id}`);

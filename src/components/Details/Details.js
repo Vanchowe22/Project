@@ -2,6 +2,7 @@ import Main from "./Main";
 import CommentSection from "./CommentSection";
 import useDetails from "../../hooks/useDetails";
 import { useAuth } from "../../hooks/useAuth";
+import RelatedPosts from "./RelatedPosts";
 
 const Details = ({
     match
@@ -25,9 +26,10 @@ const Details = ({
                                 ? <CommentSection article={article} updateArticle={updateArticle} />
                                 : ''
                         }
+
                     </div>
                 </div>
-
+                < RelatedPosts />
             </div>
         </>
     );

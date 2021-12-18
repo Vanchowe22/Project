@@ -21,7 +21,7 @@ const Main = ({
     const onDelete = (e) => {
         deleteOne(article._id, auth.token)
             .then(data => {
-                history.push('/');
+                history.push('/all-blogs');
                 updateNotification('Successfully deleted!', types.info);
             })
             .catch(err => {

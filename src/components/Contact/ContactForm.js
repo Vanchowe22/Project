@@ -8,16 +8,9 @@ const ContactForm = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         let form = e.currentTarget;
-        let formData = new FormData(form);
+        let formData = Object.fromEntries(new FormData(form));
 
-        let message = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            subject: formData.get('subject'),
-            message: formData.get('message'),
-        };
-
-        sendEmail(message)
+        sendEmail(formData)
             .then(() => {
                 form.reset();
                 updateNotification('Successfully sent', types.info);

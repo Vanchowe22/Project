@@ -13,6 +13,10 @@ const Header = () => {
                 <i className="fas fa-user"></i>
                 My Profile
             </NavLink></li>
+            <li className="tm-nav-item"><NavLink to="/contact" className="tm-nav-link active">
+                <i className="far fa-comments"></i>
+                Contact Us
+            </NavLink></li>
             <li className="tm-nav-item"><NavLink to="/logout" className="tm-nav-link active">
                 <i className="fas fa-sign-out-alt"></i>
                 Logout
@@ -29,6 +33,10 @@ const Header = () => {
             <li className="tm-nav-item"><NavLink to="/register" className="tm-nav-link active">
                 <i className="fas fa-pen"></i>
                 Register
+            </NavLink></li>
+            <li className="tm-nav-item"><NavLink to="/contact" className="tm-nav-link active">
+                <i className="far fa-comments"></i>
+                Contact Us
             </NavLink></li>
         </>
     );
@@ -57,10 +65,7 @@ const Header = () => {
                                 ? user
                                 : guest
                         }
-                        <li className="tm-nav-item"><NavLink to="/contact" className="tm-nav-link active">
-                            <i className="far fa-comments"></i>
-                            Contact Us
-                        </NavLink></li>
+
                     </ul>
                 </nav>
                 <div className="tm-mb-65">

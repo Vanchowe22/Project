@@ -1,6 +1,15 @@
 .center-blue-mid {
+    text-align: center;
+    margin-right: 165px;
+    margin-top: -20px;
+    margin-bottom: 55px;
+    padding: 25px;
+    color: #3cc;;
+}
+.center-img {
+    height: 7em;
+    width: 7em;
     position: absolute;
-    top: -7px;
-    right: 710px;
-    color: #3cc;
+    right: 793px;
+    top: 130px;
 }
