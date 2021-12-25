@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 const RelatedPost = ({
     post
 }) => {
-    console.log(post);
     return (
         <Link to={`/details/${post._id}`} >
             <figure>

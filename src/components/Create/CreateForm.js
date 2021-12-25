@@ -4,11 +4,23 @@ import { create } from "../../service/acticles-service";
 import { useAuth } from "../../hooks/useAuth";
 import { useNotification } from '../../hooks/useNotification';
 import { types } from '../../contexts/NotificationContext';
+import { useState } from 'react';
 
 const CreateForm = () => {
+    const [image, setImage] = useState([]);
     let history = useHistory();
     let { auth } = useAuth();
     const { updateNotification } = useNotification();
+
+    const onUpload = (e) => {
+        const file = e.target.files[0];
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = e => {
+            setImage(e.target.result);
+        }
+    }
+
     const submit = (e) => {
         e.preventDefault();
 
@@ -17,14 +29,10 @@ const CreateForm = () => {
         let post = {
             title: formData.get('name'),
             type: formData.get('genre'),
-            imageUrl: formData.get('imageUrl'),
+            imageUrl: image,
             description: formData.get('message'),
             owner: auth._id,
         };
-
-        if (!auth._id) {
-            return <Redirect to='/login' />
-        }
 
         create(post, auth._id)
             .then(data => {
@@ -48,7 +56,7 @@ const CreateForm = () => {
                 </div>
 
                 <div className="col-12" style={{ size: '200px' }}>
-                    <input type="text" className="form-control" style={{ size: '200px' }} name="imageUrl" placeholder="Image Url" />
+                    <input type="file" style={{ size: '200px' }} onChange={onUpload} name="imageUrl" placeholder="Image Url" />
                 </div>
 
                 <div className="col-lg-12 col-12">
