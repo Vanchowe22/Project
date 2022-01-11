@@ -22,6 +22,7 @@ const Article = ({
             </div>
             <hr />
             <div className="d-flex justify-content-between">
+                <span>{article.comments.length} comments</span>
                 <span>by {article.owner.name != undefined
                     ? article.owner.name
                     : profileName

@@ -1,4 +1,5 @@
 import { del, get, post, put } from "../helpers/requester";
+import { uploadFile } from "../helpers/uploadFile";
 
 const baseUrl = 'http://localhost:5000/data/blog'
 
@@ -6,7 +7,13 @@ export const getAll = () => get(baseUrl);
 
 export const getOne = (id) => get(`${baseUrl}/${id}`);
 
-export const create = (data) => post(`${baseUrl}`, data)
+export const create = (data) => {
+    return uploadFile(data.imageUrl)
+        .then(url => {
+            data.imageUrl = url;
+            return post(baseUrl, data);
+        })
+};
 
 export const commentOne = (data, id) => post(`${baseUrl}/${id}`, data);
 
