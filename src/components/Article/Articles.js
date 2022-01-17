@@ -7,7 +7,7 @@ import useFetchAll from "../../hooks/useFetchAll";
 const Articles = ({
     allBlogs
 }) => {
-    let [articles, setArticles] = useFetchAll(getAll, allBlogs);
+    const [articles, setArticles] = useFetchAll(getAll, allBlogs);
 
     return (
         <>

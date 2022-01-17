@@ -1,5 +1,5 @@
 import { del, get, post, put } from "../helpers/requester";
-import { uploadFile } from "../helpers/uploadFile";
+import { deleteFile, uploadFile } from "../helpers/firebaseFuncs";
 
 const baseUrl = 'http://localhost:5000/data/blog'
 
@@ -19,7 +19,12 @@ export const commentOne = (data, id) => post(`${baseUrl}/${id}`, data);
 
 export const editOne = (id, data, authorization) => put(`${baseUrl}/${id}`, data, authorization);
 
-export const deleteOne = (id, authorization) => del(`${baseUrl}/${id}`, null, authorization);
+export const deleteOne = (id, authorization) => {
+    return del(`${baseUrl}/${id}`, null, authorization)
+        .then(blog => {
+            return deleteFile(blog.imageUrl)
+        })
+};
 
 export const search = (query) => get(`http://localhost:5000/search?name=${query}`);
 

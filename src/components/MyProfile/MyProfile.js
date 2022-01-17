@@ -9,8 +9,6 @@ const MyProfile = () => {
 
     const profile = useFetchProfile(auth.token);
 
-    console.log(profile);
-
     return (
         <>
             <img src="/img/user.jpg" alt="user icon" className="center-img" />

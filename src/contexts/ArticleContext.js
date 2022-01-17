@@ -6,7 +6,7 @@ const ArticleContext = createContext();
 export const ArticleProvider = ({
     children
 }) => {
-    const [article, setArticle] = useLocalStorage('articleData', {});
+    const [article, setArticle] = useLocalStorage('articleData');
 
     const updateArticle = useCallback((data) => {
         setArticle(data);

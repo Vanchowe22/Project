@@ -3,23 +3,17 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 const AuthContext = createContext();
 
-const initState = {
-    _id: '',
-    email: '',
-    token: '',
-};
-
 export const AuthProvider = ({
     children
 }) => {
-    const [auth, setAuth] = useLocalStorage('userInfo', initState)
+    const [auth, setAuth] = useLocalStorage('userInfo')
 
     const onLogin = useCallback((user) => {
         setAuth(user)
     }, [setAuth]);
 
     const onLogout = useCallback(() => {
-        setAuth(initState);
+        setAuth({});
     }, [setAuth]);
 
     return (

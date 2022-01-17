@@ -1,5 +1,5 @@
 import { storage } from '../firebase';
-import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 
 export const uploadFile = (file) => {
     return new Promise((resolve, reject) => {
@@ -24,5 +24,9 @@ export const uploadFile = (file) => {
             }
         )
     })
+}
 
+export const deleteFile = (imageUrl) => {
+    let deleteRef = ref(storage, imageUrl)
+    return deleteObject(deleteRef);
 }
