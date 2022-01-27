@@ -8,6 +8,7 @@ import Contact from "./components/Contact/Contact";
 import Create from "./components/Create/Create";
 import Logout from "./components/Auth/Logout";
 import MyProfile from "./components/MyProfile/MyProfile";
+import Messenger from "./components/Messenger/Messenger";
 
 import { AuthProvider } from "./contexts/AuthContext";
 
@@ -42,6 +43,7 @@ function App() {
                                     <Route path='/details/:id' component={Details} />,
                                     <Route path='/edit/:id' component={Edit} />
                                     <Route path='/logout' component={Logout} />
+                                    <Route path='/direct-messages' component={Messenger} />
                                 </Switch>
                                 <Footer />
                             </main>

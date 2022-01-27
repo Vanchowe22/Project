@@ -13,6 +13,10 @@ const Header = () => {
                 <i className="fas fa-user"></i>
                 My Profile
             </NavLink></li>
+            <li className="tm-nav-item"><NavLink to="/direct-messages" className="tm-nav-link active">
+                <i class="fas fa-inbox"></i>
+                DMs
+            </NavLink></li>
             <li className="tm-nav-item"><NavLink to="/contact" className="tm-nav-link active">
                 <i className="far fa-comments"></i>
                 Contact Us
