@@ -5,17 +5,11 @@ const useFetchAll= (service, allBlogs) => {
     useEffect(() => {
         service()
             .then(data => {
-                if(!allBlogs){
-                    data = data.slice(0, 4)
-                    setState(data);
-                }else{
                     setState(data)
-                }
             });
     }, [service, allBlogs])
 
     const setArticles = (data) => {
-        console.log(data);
         setState(data)
     }
 

@@ -1,20 +1,15 @@
 import './Articles.css'
-import { getAll } from "../../service/acticles-service";
+import { getAll, search } from "../../service/acticles-service";
 import Article from "./Article";
 import Search from "../Search";
 import useFetchAll from "../../hooks/useFetchAll";
 
-const Articles = ({
-    allBlogs
-}) => {
-    const [articles, setArticles] = useFetchAll(getAll, allBlogs);
+const Articles = () => {
+    const [articles, setArticles] = useFetchAll(getAll);
 
     return (
         <>
-            {allBlogs
-                ? <Search onSearch={setArticles} />
-                : <h1 className="center-blue-mid">Welcome to Xtra Blog</h1>
-            }
+            <Search search={search} onSearch={setArticles} />
             <div className="row tm-row">
                 {articles.map(x => <Article key={x._id} article={x} />)}
             </div>

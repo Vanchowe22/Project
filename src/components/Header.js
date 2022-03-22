@@ -5,6 +5,11 @@ const Header = () => {
     let { auth } = useAuth();
     let user = (
         <>
+
+            <li className="tm-nav-item"><NavLink to="/friends" className="tm-nav-link active">
+                <i className="fas fa-plus-circle"></i>
+                Friends
+            </NavLink></li>
             <li className="tm-nav-item"><NavLink to="/create" className="tm-nav-link active">
                 <i className="fas fa-plus-circle"></i>
                 Create
@@ -58,11 +63,7 @@ const Header = () => {
                     <ul>
                         <li className="tm-nav-item"><NavLink to="/" className="tm-nav-link active">
                             <i className="fas fa-home"></i>
-                            Blog Home
-                        </NavLink></li>
-                        <li className="tm-nav-item"><NavLink to="/all-blogs" className="tm-nav-link active">
-                            <i className="fas fa-bars"></i>
-                            All Blogs
+                            Blogs
                         </NavLink></li>
                         {
                             auth.name

@@ -114,11 +114,27 @@
     border: none;
     border-bottom: 1px solid gray;
   }
+  .chatMenuSearch {
+    position: absolute;
+    top: 78px;
+    right: 930px;
+  }
   
   .chatBox {
     flex: 5.5;
   }
   
+  .chatUnseen {
+    display: flex;
+align-items: center;
+padding: 10px;
+cursor: pointer;
+margin-top: 20px;
+border-radius: 25px;
+border: 2px solid black;
+width: 375px;
+  }
+
   .chatBoxWrapper {
     display: flex;
     flex-direction: column;

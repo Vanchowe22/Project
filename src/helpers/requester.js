@@ -4,12 +4,13 @@ const request = (method, url, data, token) => {
         headers: {},
     };
 
-    if (['POST', 'PUT'].includes(method)) {
+    if (['POST', 'PUT', 'DELETE'].includes(method)) {
         options.headers = {
             'Content-Type': 'application/json'
         }
-
-        options.body = JSON.stringify(data);
+        if (data) {
+            options.body = JSON.stringify(data);
+        }
     }
 
     if (token) {

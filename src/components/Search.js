@@ -1,6 +1,6 @@
-import { search } from "../service/acticles-service";
 const Search = ({
-    onSearch
+    onSearch,
+    search
 }) => {
     const submitHandler = (e) => {
         e.preventDefault();

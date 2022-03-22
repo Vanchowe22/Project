@@ -1,3 +1,4 @@
+import { io } from 'socket.io-client';
 import './Messenger.css';
 
 import Conversation from "./Conversation";
@@ -6,8 +7,9 @@ import { useAuth } from '../../hooks/useAuth';
 import useConv from '../../hooks/useConv';
 import { useEffect, useRef, useState } from 'react';
 import useMess from '../../hooks/useMess';
-import { sendMess } from '../../service/messenger-service';
-import { io } from 'socket.io-client';
+import SearchConv from './SearchConv';
+import MessageForm from './MessageForm';
+import { seeConv } from '../../service/messenger-service';
 
 const Messenger = () => {
     const socket = io('http://localhost:4000')
@@ -15,7 +17,7 @@ const Messenger = () => {
     const [conv, addConv] = useConv(auth._id);
     const [currentChat, setCurrentChat] = useState(null);
     const [mess, addMess] = useMess(currentChat);
-    const [arrMess, setArrMess] = useState(null)
+    const [arrMess, setArrMess] = useState(null);
     const scrollRef = useRef();
 
     socket.on('receive-message', (message) => {
@@ -39,34 +41,24 @@ const Messenger = () => {
         addMess(arrMess);
     }, [arrMess]);
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-        let form = e.target;
-        let text = Object.fromEntries(new FormData(form));
-
-        let message = {
-            sender: auth._id,
-            conversationId: currentChat._id,
-            ...text
+    const selectChat = async (x) => {
+        if (x.messages[x.messages.length - 1]?.sender !== auth._id || x.messages.length == 0) {
+            let data = await seeConv(x._id);
+            await setCurrentChat(data);
+        } else {
+            await setCurrentChat(x);
         }
-
-        socket.emit('send-message', message, currentChat._id);
-
-        sendMess(message)
-            .then(() => {
-                form.reset();
-            })
     };
 
     return (
         <div className="messenger">
             <div className="chatMenu">
                 <div className="chatMenuWrapper">
-                    <input placeholder="Search for friends" className="chatMenuInput" />
+                    <SearchConv addConv={addConv} />
                     {
                         conv.map(x =>
-                            <div onClick={() => setCurrentChat(x)}>
-                                <Conversation key={x._id} conversation={x} userId={auth._id} />
+                            <div onClick={() => selectChat(x)}>
+                                <Conversation key={x._id} current={currentChat} conversation={x} userId={auth._id} />
                             </div>)
                     }
                 </div>
@@ -84,18 +76,15 @@ const Messenger = () => {
                             : ''
                         }
                     </div>
-                    <div className="chatBoxBottom">
-                        <form onSubmit={submitHandler}>
-                            <textarea
-                                className="chatMessageInput"
-                                placeholder="write something..."
-                                name='text'
-                            ></textarea>
-                            <button className="chatSubmitButton">
-                                Send
-                            </button>
-                        </form>
-                    </div>
+                    {
+                        currentChat
+                            ? < MessageForm
+                                socket={socket}
+                                currentChat={currentChat}
+                                auth={auth} />
+                            : ''
+                    }
+
                     {/* <span className="noConversationText">
                         Open a conversation to start a chat.
                     </span> */}

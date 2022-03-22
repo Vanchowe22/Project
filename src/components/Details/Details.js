@@ -9,6 +9,7 @@ const Details = ({
 }) => {
     const [article, updateArticle] = useDetails(match.params.id);
     const { auth } = useAuth();
+
     return (
         <>
             <div className="row tm-row">

@@ -1,0 +1,58 @@
+body{
+    font: sans-serif;
+}
+
+h1 {
+    color: black;
+    margin-bottom: 30px;
+}
+
+
+#asdasd {
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 20px;
+}
+
+.azsum {
+    list-style-type: none;
+    background-color: #eaeaea;
+    border-radius: 3px;
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 400px;
+    margin: auto;
+    max-width: 500px;
+    height: 50px;
+}
+
+img{
+    border-radius: 50%;
+    width: 50px;
+}
+
+.azsum > h2 {
+    
+    margin-bottom: 0px;
+    
+}
+.azsum > img {
+    max-height: 100px;
+}
+
+.aznesum{
+    position: relative;
+    margin-right: 150px;
+    text-align: center;
+    top: -15px;
+}
+
+.toieciganin {
+    position: absolute;
+    margin-right: 1000px;
+    margin-left: 300px;
+    margin-top: 20px;
+}
+

@@ -28,7 +28,7 @@ const CreateForm = () => {
 
         create(post, auth._id)
             .then(data => {
-                history.push('/all-blogs');
+                history.push('/');
                 updateNotification(`You've created new post!`, types.info);
             })
             .catch(err => {

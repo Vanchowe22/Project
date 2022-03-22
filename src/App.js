@@ -7,7 +7,7 @@ import Details from "./components/Details/Details";
 import Contact from "./components/Contact/Contact";
 import Create from "./components/Create/Create";
 import Logout from "./components/Auth/Logout";
-import MyProfile from "./components/MyProfile/MyProfile";
+import Profile from "./components/Profile/Profile";
 import Messenger from "./components/Messenger/Messenger";
 
 import { AuthProvider } from "./contexts/AuthContext";
@@ -18,6 +18,7 @@ import Edit from "./components/Edit/Edit";
 import { ArticleProvider } from "./contexts/ArticleContext";
 import { NotificationProvider } from "./contexts/NotificationContext";
 import Notification from "./components/Common/Notification";
+import Friends from "./components/Friends/Friends";
 
 function App() {
 
@@ -31,10 +32,7 @@ function App() {
                         <div className="container-fluid">
                             <main className="tm-main">
                                 <Switch>
-                                    <Route path='/all-blogs'>
-                                        <Articles allBlogs={true} />
-                                    </Route>
-                                    <Route path='/my-profile' component={MyProfile} />
+                                    <Route path='/friends' component={Friends} />
                                     <Route path='/' exact component={Articles} />,
                                     <Route path='/login' component={Login} />,
                                     <Route path='/register' component={Register} />,
@@ -44,6 +42,10 @@ function App() {
                                     <Route path='/edit/:id' component={Edit} />
                                     <Route path='/logout' component={Logout} />
                                     <Route path='/direct-messages' component={Messenger} />
+                                    <Route path='/my-profile'>
+                                        <Profile myProfile={true} />
+                                    </Route>
+                                    <Route path='/user/:id' component={Profile} />
                                 </Switch>
                                 <Footer />
                             </main>

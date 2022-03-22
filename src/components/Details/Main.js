@@ -21,7 +21,7 @@ const Main = ({
     const onDelete = (e) => {
         deleteOne(article._id, auth.token)
             .then(data => {
-                history.push('/all-blogs');
+                history.push('/');
                 updateNotification('Successfully deleted!', types.info);
             })
             .catch(err => {
@@ -48,6 +48,7 @@ const Main = ({
                 updateNotification(err, types.error);
             });
     };
+    console.log(article);
 
     return (
         <div className="mb-4">

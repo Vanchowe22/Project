@@ -13,7 +13,6 @@ const useMess = (conv) => {
 
     const addMess = (mess) => {
         setState(state => {
-            console.log([...state, mess]);
             return [...state, mess];
         });
     };

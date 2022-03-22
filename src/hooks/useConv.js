@@ -12,7 +12,7 @@ const useConv = (id) => {
     }, [id]);
 
     const addConv = (conv) => {
-        setState(state => [...state, conv]);
+        setState(conv);
     };
 
     return [state, addConv];

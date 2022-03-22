@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { getProfile } from '../service/auth-service'
 
-const useFetchProfile = (token) => {
-    const [state, setState] = useState([]);
+const useFetchProfile = (id) => {
+    const [state, setState] = useState({});
     useEffect(() => {
-        getProfile(token)
+        getProfile(id)
             .then(data => {
                 setState(data);
             });
-    }, [token]);
+    }, [id]);
 
     return state
 };
